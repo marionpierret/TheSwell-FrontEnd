@@ -5,13 +5,16 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import TheSwellRouter from "./TheSwellRouter";
+import { TheSwellController } from "./context/TheSwellContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <TheSwellRouter />
-    </BrowserRouter>
+    <TheSwellController>
+      <BrowserRouter>
+        <TheSwellRouter />
+      </BrowserRouter>
+    </TheSwellController>
   </React.StrictMode>
 );
 

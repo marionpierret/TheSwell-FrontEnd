@@ -5,18 +5,20 @@ import axios from 'axios';
 
 
 function App() {
-  const { value1, value2, value3, value4 } = useContext(TheSwellContext)
+  const { value1, value2, value3, value4, value5 } = useContext(TheSwellContext)
   const [surfData, setSurfData] = value1;
+  const [windData, setWindData] = value5;
   console.log(surfData)
-
-  console.log(surfData)
+  console.log(windData)
 
   return (
     <div className="App">
-    {/* {surfData.map((e,i) => {
+    <p>{surfData.latitude}</p>
+    {/* {surfData &&
+      surfData.map((e,i) => {
       return(
         <div key={i}>
-        <p>{e}</p>
+        <p>{e.latitude}</p>
         </div>
       )
     })} */}
