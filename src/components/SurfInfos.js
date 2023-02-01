@@ -11,16 +11,15 @@ const SurfInfos = () => {
   return (
   <div>
     <p>{surfData.latitude}</p>
-    {/* {surfData.hourly &&
-    surfData.hourly.map((e, i) => {
+    {surfData.hourly &&
+    surfData.hourly.wave_height.map((e, i) => {
         return(
             <div key={i}>
-                <p>{e.wave_height}</p>
-                <p>{e.time}</p>
+                <p>{e}</p>
             </div>
         )
     })
-    } */}
+    }
   </div>
   );
 };
