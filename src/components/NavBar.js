@@ -1,11 +1,16 @@
 import React from 'react'
-import { Link, withRouter, useHistory, useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { TheSwellContext } from '../context/TheSwellContext'
+import { Link, withRouter, useHistory, useNavigate, useParams } from 'react-router-dom'
 
 
 
 const Navbar = () =>  {
   let navigate = useNavigate()
+  const { value4, value9 } = useContext(TheSwellContext);
+  const [users, setUsers] = value4;
 
+  let { userId } = useParams();
 
   const logOut = (e) => {
     e.preventDefault()
@@ -28,11 +33,13 @@ const Navbar = () =>  {
     </ul>
   )
 
+  
+
   const userLink = (
     <ul className="navbar-nav">
       <li className="nav-item">
-        <Link to="/profile" className="nav-link">
-          User
+        <Link to='/profile' className="nav-link">
+          My profile
         </Link>
       </li>
       <li className="nav-item">

@@ -5,6 +5,7 @@ import SurfInfos from "./components/SurfInfos";
 import SurfMap from './components/SurfMap'
 import SearchBar from './components/SearchBar'
 import NavBar from "./components/NavBar";
+import Survey from "./components/Survey";
 
 function App() {
   const { value1, value2, value3, value4, value5 } = useContext(TheSwellContext);
@@ -16,7 +17,8 @@ function App() {
     <div className="App">
     <NavBar/>
       <SearchBar/>
-      <SurfInfos />
+      <Survey />
+      {/* <SurfInfos /> */}
       <SurfMap />
     </div>
   );
