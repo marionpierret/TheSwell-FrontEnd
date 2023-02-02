@@ -37,7 +37,7 @@ const SurfInfos = () => {
               return (
                 <div>
                   {e <= 11
-                    ? "N"
+                    ? (e = "N")
                     : 11 < e && e <= 34
                     ? (e = "N NE")
                     : 34 < e && e <= 56
@@ -66,9 +66,9 @@ const SurfInfos = () => {
                     ? (e = "W NW")
                     : 304 < e && e <= 326
                     ? (e = "NW")
-                    : e < 326
-                    ? (e = "N")
-                    : ""}
+                    : 326 < e && e <= 349
+                    ? (e = "N NW")
+                    : e = "N"}
                   <div style={{ margin: "10px 0px" }}>{e}</div>
                 </div>
               );
@@ -103,7 +103,7 @@ const SurfInfos = () => {
               return (
                 <div>
                   {e <= 11
-                    ? "N"
+                    ? (e = "N")
                     : 11 < e && e <= 34
                     ? (e = "N NE")
                     : 34 < e && e <= 56
@@ -132,9 +132,9 @@ const SurfInfos = () => {
                     ? (e = "W NW")
                     : 304 < e && e <= 326
                     ? (e = "NW")
-                    : e < 326
-                    ? (e = "N")
-                    : ""}
+                    : 326 < e && e <= 349
+                    ? (e = "N NW")
+                    : e = "N"}
                   <div style={{ margin: "10px 0px" }}>{e}</div>
                 </div>
               );
