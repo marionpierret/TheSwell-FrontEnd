@@ -61,7 +61,7 @@ const SurveysAnswer = () => {
           return <></>;
         });
       })}
-      <div>
+      {/* <div>
         <h3>How clean was the spot today ?</h3>
         <p>
           {(cleanArray.reduce((a, b) => a + b) / cleanArray.length).toFixed(2)}
@@ -111,7 +111,7 @@ const SurveysAnswer = () => {
             matchConditionArray.length
           ).toFixed(2)}
         </p>
-      </div>
+      </div> */}
     </div>
   );
 };

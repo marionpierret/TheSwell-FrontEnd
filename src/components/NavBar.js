@@ -3,7 +3,7 @@ import { Link, withRouter, useHistory, useNavigate } from 'react-router-dom'
 import iconLogin from '../images/power-off.png'
 import iconProfile from '../images/account.png'
 import iconHome from '../images/home.png'
-
+import iconRegister from '../images/verified.png'
 
 
 const Navbar = () =>  {
@@ -18,14 +18,14 @@ const Navbar = () =>  {
   
   const loginRegLink = (
     <div className="navbar">
-<div nav-link>
+<div className = 'nav-link'>
         <Link to="/login" className="nav-link">
           <img src={iconLogin} alt='login'/>
         </Link>
 
 
         <Link to="/register" className="nav-link">
-        <img src={iconLogin} alt='login'/>
+        <img src={iconRegister} alt='register'/>
         </Link>
 </div>
     </div>
@@ -34,7 +34,7 @@ const Navbar = () =>  {
   
   const userLink = (
     <div className="navbar">
-<div nav-link>
+<div className = 'nav-link'>
         <Link to="/profile" className="nav-link">
           <img src={iconProfile} alt='my-profile'></img>
         </Link>
