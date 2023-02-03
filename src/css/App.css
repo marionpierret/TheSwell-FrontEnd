@@ -1,0 +1,58 @@
+*{
+  font-family: Helvetica, sans-serif;
+}
+
+body{
+  background-color: #a79f83;
+
+}
+.App {
+  text-align: center;
+  width: 800px;
+}
+
+/* .header{
+width: auto;
+height: 1000px;
+} */
+
+.navbar{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+height: 30px;
+background-color: #a79f83;
+width: 800px;
+
+}
+
+.navbar img{
+width: 30px;
+
+}
+
+.nav-link{
+color: white;
+margin-right: 10px;
+margin-left: 10px;
+}
+
+Link{
+  padding: 10px;
+}
+
+.map{
+width: 400px;
+}
+
+.info{
+  width: 400px;
+
+}
+
+.mapWithInfos{
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  margin-top: 20px;
+}

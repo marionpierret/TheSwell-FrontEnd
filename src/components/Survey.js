@@ -6,16 +6,16 @@ import jwt_decode from "jwt-decode";
 
 const Survey = () => {
   const [crowd, setCrowd] = useState(0);
-  const [matchCondition, setMatchCondition] = useState("");
-  const [current, setCurrent] = useState("");
-  const [parking, setParking] = useState("");
-  const [clean, setClean] = useState("");
-  const [danger, setDanger] = useState("");
-  const [restaurant, setRestaurant] = useState("");
-  const [swimmers, setSwimmers] = useState("");
-  const [mood, setMood] = useState("");
-  const [userId, setUserId] = useState("");
-  const [spotId, setSpotId] = useState("");
+  const [matchCondition, setMatchCondition] = useState(0);
+  const [current, setCurrent] = useState(0);
+  const [parking, setParking] = useState(0);
+  const [clean, setClean] = useState(0);
+  const [danger, setDanger] = useState(0);
+  const [restaurant, setRestaurant] = useState(0);
+  const [swimmers, setSwimmers] = useState(0);
+  const [mood, setMood] = useState(0);
+  const [userId, setUserId] = useState(0);
+  const [spotId, setSpotId] = useState(0);
 
   const [surveyData, setSurveyData] = useState();
 
@@ -78,7 +78,7 @@ const Survey = () => {
           <label>How crowded was the spot ?</label>
           <input
             type="number"
-            placeholder="How many people where their ?"
+            placeholder="On a scale from 1 to 10"
             value={crowd}
             onChange={(e) => setCrowd(e.target.value)}
           />
@@ -86,8 +86,8 @@ const Survey = () => {
         <div>
           <label>Did the conditions matched the suf report ?</label>
           <input
-            type="boolean"
-            placeholder="true / false"
+            type="number"
+            placeholder="On a scale from 1 to 10"
             value={matchCondition}
             onChange={(e) => setMatchCondition(e.target.value)}
           />
@@ -95,8 +95,8 @@ const Survey = () => {
         <div>
           <label>Was there some current ?</label>
           <input
-            type="boolean"
-            placeholder="true / false"
+            type="number"
+            placeholder="On a scale from 1 to 10"
             value={current}
             onChange={(e) => setCurrent(e.target.value)}
           />
@@ -104,8 +104,8 @@ const Survey = () => {
         <div>
           <label>Where there parking spots available ?</label>
           <input
-            type="boolean"
-            placeholder="true / false"
+            type="number"
+            placeholder="On a scale from 1 to 10"
             value={parking}
             onChange={(e) => setParking(e.target.value)}
           />
@@ -113,8 +113,8 @@ const Survey = () => {
         <div>
           <label>Was the beach clean ?</label>
           <input
-            type="boolean"
-            placeholder="true / false"
+            type="number"
+            placeholder="On a scale from 1 to 10"
             value={clean}
             onChange={(e) => setClean(e.target.value)}
           />
@@ -124,8 +124,8 @@ const Survey = () => {
             Were there dangers in the water - jellyfish, sharks ... ?
           </label>
           <input
-            type="boolean"
-            placeholder="true / false"
+            type="number"
+            placeholder="On a scale from 1 to 10"
             value={danger}
             onChange={(e) => setDanger(e.target.value)}
           />
@@ -133,8 +133,8 @@ const Survey = () => {
         <div>
           <label>Are there some restaurants near by ?</label>
           <input
-            type="boolean"
-            placeholder="true / false"
+            type="number"
+            placeholder="On a scale from 1 to 10"
             value={restaurant}
             onChange={(e) => setRestaurant(e.target.value)}
           />
@@ -142,8 +142,8 @@ const Survey = () => {
         <div>
           <label>Where there swimmers in the water ?</label>
           <input
-            type="boolean"
-            placeholder="true / false"
+            type="number"
+            placeholder="On a scale from 1 to 10"
             value={swimmers}
             onChange={(e) => setSwimmers(e.target.value)}
           />
@@ -151,8 +151,8 @@ const Survey = () => {
         <div>
           <label>Where the locals welcoming ?</label>
           <input
-            type="boolean"
-            placeholder="true / false"
+            type="number"
+            placeholder="On a scale from 1 to 10"
             value={mood}
             onChange={(e) => setMood(e.target.value)}
           />
