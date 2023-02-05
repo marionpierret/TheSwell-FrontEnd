@@ -74,7 +74,7 @@ const Survey = () => {
   return (
     <div style={{display:'flex', justifyContent:'center'}}>
       <form className="form" onSubmit={createSurvey}>
-        <h1>Spot Informations</h1>
+        <h1>Give us your feedback</h1>
         <div>
           <label className="label">How crowded was the spot ?</label>
           <input
@@ -106,7 +106,7 @@ const Survey = () => {
           />
         </div>
         <div>
-          <label className="label">Where there parking spots available ?</label>
+          <label className="label">Were there parking spots available ?</label>
           <input
             className="input"
             type="number"
@@ -148,7 +148,7 @@ const Survey = () => {
           />
         </div>
         <div>
-          <label className="label">Where there swimmers in the water ?</label>
+          <label className="label">Were there swimmers in the water ?</label>
           <input
             className="input"
             type="number"
@@ -158,7 +158,7 @@ const Survey = () => {
           />
         </div>
         <div>
-          <label className="label">Where the locals welcoming ?</label>
+          <label className="label">Were the locals welcoming ?</label>
           <input
             className="input"
             type="number"
