@@ -5,6 +5,7 @@ import Register from './components/Register'
 import Profile from './components/Profile'
 import NavBar from "./components/NavBar";
 import MemberPage from './components/MemberPage'
+import Survey from './components/Survey'
 
 const TheSwellRouter = () => {
     return(
@@ -16,8 +17,8 @@ const TheSwellRouter = () => {
                 <Route path="/register" element={<Register />}/>
                 <Route path="/profile" element={<Profile />}/>
                 <Route path="/member/:id" element={<MemberPage />}/>
-                {/* <Route path="/survey" element={<Survey />}/>
-                <Route path="/opinion" element={<Opinion />}/>
+                <Route path="/survey" element={<Survey />}/>
+                {/* <Route path="/opinion" element={<Opinion />}/>
                 <Route path="/comments" element={<Comments />}/> */}
                 <Route path='*' element={<h1>404 ERROR</h1>} /> 
             </Routes>

@@ -3,6 +3,7 @@ import { TheSwellContext } from "../context/TheSwellContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
+import '../css/Surveys.css'
 
 const Survey = () => {
   const [crowd, setCrowd] = useState(0);
@@ -71,12 +72,13 @@ const Survey = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={createSurvey}>
+    <div style={{display:'flex', justifyContent:'center'}}>
+      <form className="form" onSubmit={createSurvey}>
         <h1>Spot Informations</h1>
         <div>
-          <label>How crowded was the spot ?</label>
+          <label className="label">How crowded was the spot ?</label>
           <input
+            className="input"
             type="number"
             placeholder="On a scale from 1 to 10"
             value={crowd}
@@ -84,8 +86,9 @@ const Survey = () => {
           />
         </div>
         <div>
-          <label>Did the conditions matched the suf report ?</label>
+          <label className="label">Did the conditions matched the suf report ?</label>
           <input
+            className="input"
             type="number"
             placeholder="On a scale from 1 to 10"
             value={matchCondition}
@@ -93,8 +96,9 @@ const Survey = () => {
           />
         </div>
         <div>
-          <label>Was there some current ?</label>
+          <label className="label">Was there some current ?</label>
           <input
+            className="input"
             type="number"
             placeholder="On a scale from 1 to 10"
             value={current}
@@ -102,8 +106,9 @@ const Survey = () => {
           />
         </div>
         <div>
-          <label>Where there parking spots available ?</label>
+          <label className="label">Where there parking spots available ?</label>
           <input
+            className="input"
             type="number"
             placeholder="On a scale from 1 to 10"
             value={parking}
@@ -111,8 +116,9 @@ const Survey = () => {
           />
         </div>
         <div>
-          <label>Was the beach clean ?</label>
+          <label className="label">Was the beach clean ?</label>
           <input
+            className="input"
             type="number"
             placeholder="On a scale from 1 to 10"
             value={clean}
@@ -120,10 +126,11 @@ const Survey = () => {
           />
         </div>
         <div>
-          <label>
+          <label className="label">
             Were there dangers in the water - jellyfish, sharks ... ?
           </label>
           <input
+            className="input"
             type="number"
             placeholder="On a scale from 1 to 10"
             value={danger}
@@ -131,8 +138,9 @@ const Survey = () => {
           />
         </div>
         <div>
-          <label>Are there some restaurants near by ?</label>
+          <label className="label">Are there some restaurants near by ?</label>
           <input
+            className="input"
             type="number"
             placeholder="On a scale from 1 to 10"
             value={restaurant}
@@ -140,8 +148,9 @@ const Survey = () => {
           />
         </div>
         <div>
-          <label>Where there swimmers in the water ?</label>
+          <label className="label">Where there swimmers in the water ?</label>
           <input
+            className="input"
             type="number"
             placeholder="On a scale from 1 to 10"
             value={swimmers}
@@ -149,8 +158,9 @@ const Survey = () => {
           />
         </div>
         <div>
-          <label>Where the locals welcoming ?</label>
+          <label className="label">Where the locals welcoming ?</label>
           <input
+            className="input"
             type="number"
             placeholder="On a scale from 1 to 10"
             value={mood}
@@ -158,8 +168,9 @@ const Survey = () => {
           />
         </div>
         <div>
-          <label>SpotId</label>
+          <label className="label">SpotId</label>
           <input
+            className="input"
             type="text"
             value={spotId}
             onChange={(e) => setSpotId(e.target.value)}

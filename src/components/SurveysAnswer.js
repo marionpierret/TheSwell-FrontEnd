@@ -1,5 +1,6 @@
 import { TheSwellContext } from "../context/TheSwellContext";
 import { useContext } from "react";
+import '../css/SurveysAnswer.css'
 
 const SurveysAnswer = () => {
   const { value3, value6, value9 } = useContext(TheSwellContext);

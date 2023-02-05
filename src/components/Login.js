@@ -1,70 +1,88 @@
-import React, {useState} from 'react'
-import {login} from '../logic/UserFunctions'
+import React, { useState } from "react";
+import { login } from "../logic/UserFunctions";
 import { useNavigate } from "react-router-dom";
+import '../css/Login.css'
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+  let navigate = useNavigate();
 
-    let navigate = useNavigate()
+  const testLogin = (e) => {
+    e.preventDefault();
 
-    const testLogin = (e) =>{
-        e.preventDefault()
+    const user = {
+      email: email,
+      password: password,
+    };
 
-        const user = {
-            email : email,
-            password : password
-        }
-        
-        
-        login(user).then(res => {
-            if(res) {
-                navigate('/profile')
-            }
-        })
+    login(user).then((res) => {
+      if (res) {
+        navigate("/profile");
+      }
+    });
+  };
 
-    }
+  return (
+    <div className="container">
+      <div className="row">
+        <div className="col-md-6 mt-5 mx-auto" style={{display:'flex', justifyContent:'center'}}>
+          {/* <form noValidate onSubmit={testLogin}>
+            <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <div className="form-group">
+              <label htmlFor="email">Email address</label>
+              <input
+                type="email"
+                className="form-control"
+                name="email"
+                placeholder="Enter email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                className="form-control"
+                name="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <button type="submit" className="btn btn-lg btn-primary btn-block">
+              Sign in
+            </button>
+          </form> */}
 
-    return(
-        <div className="container">
-        <div className="row">
-          <div className="col-md-6 mt-5 mx-auto">
-            <form noValidate onSubmit={testLogin}>
-              <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
-              <div className="form-group">
-                <label htmlFor="email">Email address</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  name="email"
-                  placeholder="Enter email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  name="password"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
-              <button
-                type="submit"
-                className="btn btn-lg btn-primary btn-block"
-              >
-                Sign in
-              </button>
+          <form className="form" onSubmit={testLogin}>
+              <label class="label">username</label>
+              <input
+                type="email"
+                className="input"
+                name="email"
+                placeholder="Enter email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <label class="label">password</label>
+              <input
+                type="password"
+                className="input"
+                name="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <button type="submit">Submit</button>
             </form>
-          </div>
+
         </div>
       </div>
-    )
-} 
+    </div>
+  );
+};
 
-export default Login
+export default Login;
