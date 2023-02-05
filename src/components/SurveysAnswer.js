@@ -73,57 +73,57 @@ const SurveysAnswer = () => {
         <div>
           <h3>How clean was the spot today ?</h3>
           <p>
-            {(cleanArray.reduce((a, b) => a + b) / cleanArray.length).toFixed(
+            {(cleanArray.reduce((a, b) => a + b) / (cleanArray.length-1)).toFixed(
               2
             )}
-            {console.log(cleanArray)}
           </p>
           <h3>How crowded was the spot today ?</h3>
           <p>
-            {(crowdArray.reduce((a, b) => a + b) / crowdArray.length).toFixed(
+            {(crowdArray.reduce((a, b) => a + b) / (crowdArray.length-1)).toFixed(
               2
             )}
           </p>
           <h3>How bad was the current today ?</h3>
           <p>
             {(
-              currentArray.reduce((a, b) => a + b) / currentArray.length
+              currentArray.reduce((a, b) => a + b) / (currentArray.length-1)
             ).toFixed(2)}
           </p>
           <h3>Were there some danger on the spot (jellyfish, sharks...) ?</h3>
           <p>
-            {(dangerArray.reduce((a, b) => a + b) / dangerArray.length).toFixed(
+            {(dangerArray.reduce((a, b) => a + b) / (dangerArray.length-1)).toFixed(
               2
             )}
           </p>
           <h3>How welcoming were the locals ?</h3>
           <p>
-            {(moodArray.reduce((a, b) => a + b) / moodArray.length).toFixed(2)}
+            {(moodArray.reduce((a, b) => a + b) / (moodArray.length-1)).toFixed(2)}
           </p>
           <h3>Were there parking spots available ?</h3>
           <p>
             {(
-              parkingArray.reduce((a, b) => a + b) / parkingArray.length
+              parkingArray.reduce((a, b) => a + b) / (parkingArray.length-1)
             ).toFixed(2)}
           </p>
           <h3>Spots to eat and drink around ?</h3>
           <p>
             {(
-              restaurantArray.reduce((a, b) => a + b) / restaurantArray.length
+              restaurantArray.reduce((a, b) => a + b) / (restaurantArray.length-1)
             ).toFixed(2)}
           </p>
           <h3>Were there many swimmers ?</h3>
           <p>
             {(
-              swimmersArray.reduce((a, b) => a + b) / swimmersArray.length
+              swimmersArray.reduce((a, b) => a + b) / (swimmersArray.length-1)
             ).toFixed(2)}
           </p>
           <h3>Did the conditions matched the report ?</h3>
           <p>
             {(
               matchConditionArray.reduce((a, b) => a + b) /
-              matchConditionArray.length
+              (matchConditionArray.length-1)
             ).toFixed(2)}
+            {console.log(matchConditionArray)}
           </p>
         </div>
       ) : (
