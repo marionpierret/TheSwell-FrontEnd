@@ -22,8 +22,6 @@ const SurveysAnswer = () => {
       spot.latitude == locationData.latitude.toFixed(2) &&
       spot.longitude == locationData.longitude.toFixed(2)
   );
-  //   const surveysFiltered = surveys.filter(survey => spot._id == survey.spotId )
-  console.log(spotsFiltered)
 
   return (
     <div>
@@ -51,7 +49,7 @@ const SurveysAnswer = () => {
             parkingArray.push(survey.parking);
           }
           {
-            restaurantArray.push(survey.restaurant);
+            restaurantArray.push(survey.restaurants);
           }
           {
             swimmersArray.push(survey.swimmers);
@@ -124,7 +122,6 @@ const SurveysAnswer = () => {
               matchConditionArray.reduce((a, b) => a + b) /
               (matchConditionArray.length-1)
             ).toFixed(2)}
-            {console.log(matchConditionArray)}
           </p>
         </div>
       ) : (
