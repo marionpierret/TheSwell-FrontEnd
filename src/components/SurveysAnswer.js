@@ -19,10 +19,11 @@ const SurveysAnswer = () => {
 
   const spotsFiltered = spots.filter(
     (spot) =>
-      spot.latitude == locationData.latitude.toFixed(5) &&
-      spot.longitude == locationData.longitude.toFixed(5)
+      spot.latitude == locationData.latitude.toFixed(2) &&
+      spot.longitude == locationData.longitude.toFixed(2)
   );
   //   const surveysFiltered = surveys.filter(survey => spot._id == survey.spotId )
+  console.log(spotsFiltered)
 
   return (
     <div>
