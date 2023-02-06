@@ -1,6 +1,7 @@
 import { TheSwellContext } from "../context/TheSwellContext";
 import { useContext, useState, useEffect } from "react";
 import '../css/MemberPage.css'
+import '../css/SurfInfos.css'
 
 const SurfInfos = () => {
   const { value1, value5, value7 } = useContext(TheSwellContext);
@@ -11,16 +12,10 @@ const SurfInfos = () => {
   console.log(windData);
 
   return (
-    <div>
+    <div className='surf-card'>
       <h2 style={{textAlign:'center'}}>{query}</h2>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-        }}
-      >
-        <div style={{ margin: "0px 25px" }}>
+      <div className='surf-infos'>
+        <div className='element-row'>
           <h3>Time</h3>
           {surfData.hourly &&
             surfData.hourly.time
@@ -28,19 +23,19 @@ const SurfInfos = () => {
             .map((e) => {
               return (
                 <div>
-                  <div style={{ margin: "10px 0px" }}>{e.replaceAll('-', '/').replace('T', ' ').replace(':', 'h')}</div>
+                  <div className='element'>{e.replaceAll('-', '/').replace('T', ' ').replace(':', 'h')}</div>
                 </div>
               );
             })}
         </div>
-        <div style={{ margin: "0px 25px" }}>
+        <div className='element-row'>
           <h3>Wave direction</h3>
           {surfData.hourly &&
             surfData.hourly.wave_direction
             .filter((e, i) => i%3 === 0 && i<96)
             .map((e) => {
               return (
-                <div style={{ margin: "10px 0px" }}>
+                <div className='element'>
                    {e <= 11
                     ? (e = "N")
                     : 11 < e && e <= 34
@@ -79,7 +74,7 @@ const SurfInfos = () => {
               );
             })}
         </div>
-        <div style={{ margin: "0px 25px" }}>
+        <div className='element-row'>
           <h3>Wave height</h3>
           {surfData.hourly &&
             surfData.hourly.wave_height
@@ -87,12 +82,12 @@ const SurfInfos = () => {
             .map((e) => {
               return (
                 <div>
-                  <div style={{ margin: "10px 0px" }}>{e} m</div>
+                  <div className='element'>{e} m</div>
                 </div>
               );
             })}
         </div>
-        <div style={{ margin: "0px 25px" }}>
+        <div className='element-row'>
           <h3>Wave period</h3>
           {surfData.hourly &&
             surfData.hourly.wave_period
@@ -100,19 +95,19 @@ const SurfInfos = () => {
             .map((e) => {
               return (
                 <div>
-                  <div style={{ margin: "10px 0px" }}>{Math.round(e)} sec</div>
+                  <div className='element'>{Math.round(e)} sec</div>
                 </div>
               );
             })}
         </div>
-        <div style={{ margin: "0px 25px" }}>
+        <div className='element-row'>
           <h3>Wind direction</h3>
           {windData.hourly &&
             windData.hourly.winddirection_10m
             .filter((e, i) => i%3 === 0 && i<96)
             .map((e, i) => {
               return (
-                <div style={{ margin: "10px 0px" }}>
+                <div className='element'>
                   {e <= 11
                     ? (e = "N")
                     : 11 < e && e <= 34
@@ -151,7 +146,7 @@ const SurfInfos = () => {
               );
             })}
         </div>
-        <div style={{ margin: "0px 25px" }}>
+        <div className='element-row'>
           <h3>Wind speed</h3>
           {windData.hourly &&
             windData.hourly.windspeed_10m
@@ -159,7 +154,7 @@ const SurfInfos = () => {
             .map((e) => {
               return (
                 <div>
-                  <div style={{ margin: "10px 0px" }}>{e} km/h</div>
+                  <div className='element'>{e} km/h</div>
                 </div>
               );
             })}

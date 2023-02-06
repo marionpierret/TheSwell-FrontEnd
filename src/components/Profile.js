@@ -3,10 +3,9 @@ import { TheSwellContext } from "../context/TheSwellContext";
 import jwt_decode from "jwt-decode";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import "../css/Profile.css";
 
 const Profile = () => {
-  let navigate = useNavigate();
-
   let { userId } = useParams();
 
   const initialValue = {
@@ -29,10 +28,6 @@ const Profile = () => {
 
   const [details, setDetails] = useState(initialValue);
 
-  const refreshPage = () => {
-    window.location.reload(false);
-  };
-
   useEffect(() => {
     const timer = setTimeout(() => {
       getProfil();
@@ -41,7 +36,6 @@ const Profile = () => {
   }, []);
 
   const getProfil = async () => {
-    navigate("/profile");
     const token = await localStorage.usertoken;
     const decoded = await jwt_decode(token);
     console.log(decoded.user._id);
@@ -66,86 +60,92 @@ const Profile = () => {
       role: decoded.user.role,
     });
   };
-
+  // console.log(user.image);
   return (
-    <div className="container">
-      <div className="jumbotron mt-5">
-        <div className="col-sm-8 mx-auto">
-          <h1 className="text-center">PROFILE</h1>
-        </div>
-        <table className="table col-md-6 mx-auto">
-          <tbody>
-            <tr>
-              <td>
-                <img src={user.image} alt="" />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h2>Vos informations</h2>
-              </td>
-            </tr>
-            <tr>
-              <td>Id</td>
-              <td>{details.id}</td>
-            </tr>
-            <tr>
-              <td>Username</td>
-              <td>{user.username}</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td>{user.email}</td>
-            </tr>
-            <tr>
-              <td>First name</td>
-              <td>{user.first_name}</td>
-            </tr>
-            <tr>
-              <td>Last name</td>
-              <td>{user.last_name}</td>
-            </tr>
-            <tr>
-              <td>Address</td>
-              <td>{user.street}</td>
-            </tr>
-            <tr>
-              <td>City</td>
-              <td>{user.city}</td>
-            </tr>
-            <tr>
-              <td>Zip code</td>
-              <td>{user.zip_code}</td>
-            </tr>
-            <tr>
-              <td>Country</td>
-              <td>{user.country}</td>
-            </tr>
-            <tr>
-              <td>Password</td>
-              <td>{user.password}</td>
-            </tr>
-          </tbody>
-        </table>
-        <div>
-          <Link to={`/comments/${details.id}`} className="btn-mycomments">
-            Accéder à mon historique de commentaires
-          </Link>
-          <br></br>
-          <Link to={`/edit/${details.id}`}>Editer mon profil </Link>
-        </div>
+    <div className="profile">
+      <div>
+        <h1>YOUR PROFILE</h1>
+      </div>
+      <table>
+        <tbody>
+          <tr>
+            <td className="circle-image">
+              <img
+                src={`http://localhost:8000${user.image}`}
+                alt=""
+                className="img"
+              />
+            </td>
+          </tr>
 
-        <div>
-          <h2>Mes informations surf</h2>
-          <tbody>
-            <tr>
-              <td>Mon niveau: {user.level}</td>
-            </tr>
-            <tr>
-              <td>Mes spots de références:</td>
-            </tr>
-          </tbody>
-        </div>
+          <tr>
+            <td>
+              <h2>Vos informations</h2>
+            </td>
+          </tr>
+          <tr>
+            <td>Id</td>
+            <td>{details.id}</td>
+          </tr>
+          <tr>
+            <td>Username</td>
+            <td>{user.username}</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>{user.email}</td>
+          </tr>
+          <tr>
+            <td>First name</td>
+            <td>{user.first_name}</td>
+          </tr>
+          <tr>
+            <td>Last name</td>
+            <td>{user.last_name}</td>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <td>{user.street}</td>
+          </tr>
+          <tr>
+            <td>City</td>
+            <td>{user.city}</td>
+          </tr>
+          <tr>
+            <td>Zip code</td>
+            <td>{user.zip_code}</td>
+          </tr>
+          <tr>
+            <td>Country</td>
+            <td>{user.country}</td>
+          </tr>
+          <tr>
+            <td>Password</td>
+            <td>{user.password}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+        <button className="button-name">
+          <Link to={`/comments/${details.id}`} className="btn-mycomments">
+            Surveys history
+          </Link>
+        </button>
+        <button className="button-name">
+          <Link to={`/edit/${details.id}`}>Edit my profile</Link>
+        </button>
+      </div>
+
+      <div>
+        <h2>Mes informations surf</h2>
+        <tbody>
+          <tr>
+            <td>Mon niveau: {user.level}</td>
+          </tr>
+          <tr>
+            <td>Mes spots de références:</td>
+          </tr>
+        </tbody>
       </div>
     </div>
   );

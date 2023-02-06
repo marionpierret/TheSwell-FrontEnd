@@ -75,6 +75,7 @@ const Survey = () => {
     <div style={{display:'flex', justifyContent:'center'}}>
       <form className="form" onSubmit={createSurvey}>
         <h1>Give us your feedback</h1>
+        <h4>1 being the lowest, 10 the highest</h4>
         <div>
           <label className="label">How crowded was the spot ?</label>
           <input

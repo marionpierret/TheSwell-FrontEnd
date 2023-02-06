@@ -71,14 +71,7 @@ const SurveysAnswer = () => {
       swimmersArray != 0.0 &&
       matchConditionArray != 0.0 ? (
         <div style={{display:'flex', flexDirection:'column', alignContent:'flex-start'}}>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent:'center'
-            }}
-          >
+          <div className='row'>
             <p>How clean was the spot today ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
@@ -87,14 +80,7 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent:'center'
-            }}
-          >
+          <div className='row'>
             <p>How crowded was the spot today ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
@@ -103,14 +89,7 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent:'center'
-            }}
-          >
+          <div className='row'>
             <p>How bad was the current today ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
@@ -119,15 +98,8 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent:'center'
-            }}
-          >
-            <p>Were there some danger on the spot (jellyfish, sharks...) ?</p>
+          <div className='row'>
+            <p>Were there some danger in te water ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
                 dangerArray.reduce((a, b) => a + b) /
@@ -135,14 +107,7 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent:'center'
-            }}
-          >
+          <div className='row'>
             <p>How welcoming were the locals ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
@@ -151,14 +116,7 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent:'center'
-            }}
-          >
+          <div className='row'>
             <p>Were there parking spots available ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
@@ -167,14 +125,7 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent:'center'
-            }}
-          >
+          <div className='row'>
             <p>Spots to eat and drink around ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
@@ -183,14 +134,7 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent:'center'
-            }}
-          >
+          <div className='row'>
             <p>Were there many swimmers ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
@@ -199,14 +143,7 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent:'center'
-            }}
-          >
+          <div className='row'>
             <p>Did the conditions matched the report ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
@@ -215,6 +152,7 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
+          <h4>(1 being the lowest, 10 the highest)</h4>
         </div>
       ) : (
         <div>

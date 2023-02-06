@@ -3,21 +3,40 @@ import RecommendedSpot from "./RecommendedSpot";
 import SurfInfos from "./SurfInfos";
 import SurfMap from "./SurfMap";
 import SurveysAnswer from "./SurveysAnswer";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const MemberPage = () => {
-    const displayAnswer = () => {
+  const [isShown, setIsShown] = useState(true);
 
-    }
+  const handleClick = (event) => {
+    setIsShown((current) => !current);
+  };
 
   return (
     <div>
       <SurfMap />
       <SurfInfos />
-
-      {/* <button role="button" class="button-name">
-        Button-name
-      </button> */}
-      <SurveysAnswer />
+      <div style={{ textAlign: "center" }}>
+        <button
+          role="button"
+          className="button-name"
+          style={{ margin: "25px 40px" }}
+        >
+          <Link to={'/survey'}>Give us your feedback</Link>
+        </button>
+        <button
+          onClick={handleClick}
+          role="button"
+          className="button-name"
+          style={{ margin: "25px 40px" }}
+        >
+          Spot feedback
+        </button>
+        <div style={{ display: isShown ? "none" : "block" }}>
+          <SurveysAnswer />
+        </div>
+      </div>
       {/* <RecommendedSpot /> */}
     </div>
   );
