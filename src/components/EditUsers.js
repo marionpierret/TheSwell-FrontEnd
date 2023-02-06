@@ -59,7 +59,7 @@ const EditUsers = () => {
               value={user.first_name}
               onChange={(e) =>
                 e.target.value &&
-                setUser({ ...user, [e.target.name]: e.target.value })
+                setUser({ [e.target.name]: e.target.value })
               }
             />
             <label>First name</label>
@@ -71,7 +71,7 @@ const EditUsers = () => {
               value={user.last_name}
               onChange={(e) =>
                 e.target.value &&
-                setUser({ ...user, [e.target.name]: e.target.value })
+                setUser({ [e.target.name]: e.target.value })
               }
             />
             <label>Last name</label>
@@ -84,7 +84,7 @@ const EditUsers = () => {
               value={user.street}
               onChange={(e) =>
                 e.target.value &&
-                setUser({ ...user, [e.target.name]: e.target.value })
+                setUser({ [e.target.name]: e.target.value })
               }
             />
             <label>Street</label>
@@ -96,7 +96,7 @@ const EditUsers = () => {
               value={user.city}
               onChange={(e) =>
                 e.target.value &&
-                setUser({ ...user, [e.target.name]: e.target.value })
+                setUser({ [e.target.name]: e.target.value })
               }
             />
             <label>City</label>
@@ -108,7 +108,7 @@ const EditUsers = () => {
               value={user.zip_code}
               onChange={(e) =>
                 e.target.value &&
-                setUser({ ...user, [e.target.name]: e.target.value })
+                setUser({[e.target.name]: e.target.value })
               }
             />
             <label>Zip code</label>
@@ -120,7 +120,7 @@ const EditUsers = () => {
               value={user.country}
               onChange={(e) =>
                 e.target.value &&
-                setUser({ ...user, [e.target.name]: e.target.value })
+                setUser({[e.target.name]: e.target.value })
               }
             />
             <label>Country</label>
@@ -132,7 +132,7 @@ const EditUsers = () => {
               // value={user.level}
               onChange={(e) =>
                 e.target.value &&
-                setUser({ ...user, [e.target.name]: e.target.value })
+                setUser({ [e.target.name]: e.target.value })
               }
             />
             <label>Level</label>
@@ -143,7 +143,7 @@ const EditUsers = () => {
               name="image"
               onChange={(e) =>
                 e.target.files[0] &&
-                setUser({ ...user, [e.target.name]: e.target.files[0] })
+                setUser({ [e.target.name]: e.target.files[0] })
               }
             />
             <label>Image</label>
