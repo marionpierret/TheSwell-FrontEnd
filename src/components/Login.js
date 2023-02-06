@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { login } from "../logic/UserFunctions";
 import { useNavigate } from "react-router-dom";
-import '../css/Login.css'
+import "../css/Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -25,62 +25,39 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-6 mt-5 mx-auto" style={{display:'flex', justifyContent:'center'}}>
-          {/* <form noValidate onSubmit={testLogin}>
-            <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
-            <div className="form-group">
-              <label htmlFor="email">Email address</label>
-              <input
-                type="email"
-                className="form-control"
-                name="email"
-                placeholder="Enter email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                className="form-control"
-                name="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <button type="submit" className="btn btn-lg btn-primary btn-block">
-              Sign in
-            </button>
-          </form> */}
-
-          <form className="form" onSubmit={testLogin}>
-              <label class="label">username</label>
-              <input
-                type="email"
-                className="input"
-                name="email"
-                placeholder="Enter email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <label class="label">password</label>
-              <input
-                type="password"
-                className="input"
-                name="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <button type="submit">Submit</button>
-            </form>
-
+    <div className="login-box">
+      <h2>Login</h2>
+      <form noValidate onSubmit={testLogin}>
+        <div className="user-box">
+          <input
+            type="email"
+            name=""
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <span className="highlight"></span>
+          <span className="bar"></span>
+          <label>Email address</label>
         </div>
-      </div>
+        <div className="user-box">
+          <input
+            type="password"
+            name=""
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <label>Password</label>
+        </div>
+        <div className="submitBtn">
+          <button type="submit" className="loginBtn">
+            <span>Submit</span>
+            <div className="top"></div>
+            <div className="left"></div>
+            <div className="bottom"></div>
+            <div className="right"></div>
+          </button>
+        </div>
+      </form>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { register } from "../logic/UserFunctions";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "../css/Register.css";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -73,266 +74,148 @@ const Register = () => {
   };
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-6 mt-5 mx-auto">
-          {/* <form onSubmit={createUser}>
-            <h1 className="h3 mb-3 font-weight-normal">Register</h1>
-            <div className="form-group">
-              <label htmlFor="username">Username</label>
-              <input
-                type="text"
-                className="form-control"
-                name="username"
-                placeholder="Enter your username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="email">Email address</label>
-              <input
-                type="email"
-                className="form-control"
-                name="email"
-                placeholder="Enter email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                className="form-control"
-                name="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="firstName">First name</label>
-              <input
-                type="firstName"
-                className="form-control"
-                name="firstName"
-                placeholder="Your first name"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="lastName">Last name</label>
-              <input
-                type="lastName"
-                className="form-control"
-                name="lastName"
-                placeholder="Your last name"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="street">Street</label>
-              <input
-                type="street"
-                className="form-control"
-                name="street"
-                placeholder="Address"
-                value={street}
-                onChange={(e) => setStreet(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="city">City</label>
-              <input
-                type="city"
-                className="form-control"
-                name="city"
-                placeholder="City"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="zipCode">Zip code</label>
-              <input
-                type="zipCode"
-                className="form-control"
-                name="zipCode"
-                placeholder="ZIP code"
-                value={zipCode}
-                onChange={(e) => setZipCode(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="country">Country</label>
-              <input
-                type="country"
-                className="form-control"
-                name="country"
-                placeholder="Country"
-                value={country}
-                onChange={(e) => setCountry(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="level">Level</label>
-              <input
-                type="level"
-                className="form-control"
-                name="level"
-                placeholder="Your level"
-                value={level}
-                onChange={(e) => setLevel(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="image">Image</label>
-              <input
-                type="file"
-                className="form-control"
-                onChange={(e) => setImage(e.target.files[0])}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="role">Role</label>
-              <input
-                type="text"
-                className="form-control"
-                name="role"
-                placeholder="Your role"
-                value={role}
-                onChange={(e) => setRole(e.target.value)}
-              />
-            </div>
-            <button type="submit" className="btn btn-lg btn-primary btn-block">
-              Register!
-            </button>
-          </form> */}
-          <div style={{display:'flex', justifyContent:'center'}}>
-          <form class="form" onSubmit={createUser}>
-          <h1>Register</h1>
-            <label class="label">Username</label>
+    <div>
+      <div className="register-box">
+        <div className="register-txt">
+          <tr>
+          <td style={{ textAlign: "center" }}>
+              <h2>Register</h2>
+            </td>
+            <td>
+              <div className="container_mouse">
+                <span className="mouse-btn">
+                  <span className="mouse-scroll"></span>
+                </span>
+                <span style={{ color: "white", fontSize: "10px" }}>
+                  Scroll Down
+                </span>
+              </div>
+            </td>
+          </tr>
+        </div>
+        <form onSubmit={createUser}>
+          <div className="user-box">
             <input
               type="text"
-              className="input"
-              name="username"
-              placeholder="Enter your username"
+              name=""
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
-            <label class="label">Email address</label>
+            <label>Username</label>
+          </div>
+
+          <div className="user-box">
             <input
               type="email"
-              className="input"
-              name="username"
-              placeholder="Enter your username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              name=""
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
-            <label class="label">Password</label>
+            <label>Email address</label>
+          </div>
+          <div className="user-box">
             <input
               type="password"
-              className="input"
-              name="password"
-              placeholder="Password"
+              name=""
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <label class="label">First name</label>
+            <label>Password</label>
+          </div>
+          <div className="user-box">
             <input
               type="firstName"
-              className="input"
-              name="firstName"
-              placeholder="Your first name"
+              name=""
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
             />
-            <label class="label">Last name</label>
+            <label>First name</label>
+          </div>
+          <div className="user-box">
             <input
               type="lastName"
-              className="input"
-              name="lastName"
-              placeholder="Your last name"
+              name=""
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
             />
-            <label class="label">Street</label>
+            <label>Last name</label>
+          </div>
+          <div className="user-box">
             <input
               type="street"
-              className="input"
-              name="street"
-              placeholder="Address"
+              className="form-control"
+              name=""
               value={street}
               onChange={(e) => setStreet(e.target.value)}
             />
-            
-            <label class="label">City</label>
+            <label>Street</label>
+          </div>
+          <div className="user-box">
             <input
               type="city"
-              className="input"
-              name="city"
-              placeholder="City"
+              name=""
               value={city}
               onChange={(e) => setCity(e.target.value)}
             />
-            <label class="label">Zip code</label>
+            <label>City</label>
+          </div>
+          <div className="user-box">
             <input
               type="zipCode"
-              className="input"
-              name="zipCode"
-              placeholder="ZIP code"
+              name=""
               value={zipCode}
               onChange={(e) => setZipCode(e.target.value)}
             />
-            <label class="label">Country</label>
+            <label>Zip code</label>
+          </div>
+          <div className="user-box">
             <input
               type="country"
-              className="input"
-              name="country"
-              placeholder="Country"
+              name=""
               value={country}
               onChange={(e) => setCountry(e.target.value)}
             />
-            <label class="label">Level</label>
+            <label>Country</label>
+          </div>
+          <div className="user-box">
             <input
               type="level"
-              className="input"
-              name="level"
-              placeholder="Your level"
+              name=""
               value={level}
               onChange={(e) => setLevel(e.target.value)}
             />
-            <label class="label">Image</label>
-            <input
-              type="file"
-              className="input"
-              onChange={(e) => setImage(e.target.files[0])}
-            />
-            <label class="label">Role</label>
+            <label>Level</label>
+          </div>
+          <div className="user-box">
+            <input type="file" onChange={(e) => setImage(e.target.files[0])} />
+            <label>Image</label>
+          </div>
+          <div className="user-box">
             <input
               type="text"
-              className="input"
-              name="role"
-              placeholder="Your role"
+              name=""
               value={role}
               onChange={(e) => setRole(e.target.value)}
             />
-            <button type="submit">Submit</button>
-          </form>
+            <label>Role</label>
           </div>
-
-          {data && (
-            <>
-              {/* <h1>{data.nameFile}</h1> */}
-              {/* <img width={'200px'} src={`http://localhost:8000/api/users${data.image}`} alt={data.image}/>  */}
-            </>
-          )}
-        </div>
+          <div className='submitBtn'>
+          <button type='submit' className='registerBtn'>
+        <span>Submit</span>
+    <div className="top"></div>
+    <div className="left"></div>
+    <div className="bottom"></div>
+    <div className="right"></div>
+          </button>
+          </div>
+        </form>
       </div>
+      {data && (
+        <>
+          {/* <h1>{data.nameFile}</h1> */}
+          {/* <img width={'200px'} src={`http://localhost:8000/api/users${data.image}`} alt={data.image}/>  */}
+        </>
+      )}
     </div>
   );
 };
