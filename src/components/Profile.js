@@ -1,16 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
 import { TheSwellContext } from "../context/TheSwellContext";
 import jwt_decode from "jwt-decode";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Profile = () => {
-
-  const { value4, value9 } = useContext(TheSwellContext);
-  const [users, setUsers] = value4;
+  let navigate = useNavigate();
 
   let { userId } = useParams();
 
-  const [details, setDetails] = useState({
+  const initialValue = {
     id: "",
     username: "",
     email: "",
@@ -24,16 +23,33 @@ const Profile = () => {
     level: "",
     image: "",
     role: "",
-  });
+  };
+
+  const [user, setUser] = useState(initialValue);
+
+  const [details, setDetails] = useState(initialValue);
+
+  const refreshPage = () => {
+    window.location.reload(false);
+  };
 
   useEffect(() => {
-    getProfil();
+    const timer = setTimeout(() => {
+      getProfil();
+    }, 200);
+    return () => clearTimeout(timer);
   }, []);
 
   const getProfil = async () => {
+    navigate("/profile");
     const token = await localStorage.usertoken;
     const decoded = await jwt_decode(token);
-    console.log(decoded);
+    console.log(decoded.user._id);
+
+    axios
+      .get(`http://localhost:8000/api/users/${decoded.user._id}`)
+      .then((res) => setUser(res.data));
+
     setDetails({
       id: decoded.user._id,
       username: decoded.user.username,
@@ -61,10 +77,7 @@ const Profile = () => {
           <tbody>
             <tr>
               <td>
-                <img
-                  src="http://localhost:8000/public/images/image-1675332124367.png"
-                  alt=""
-                />
+                <img src={user.image} alt="" />
               </td>
             </tr>
             <tr>
@@ -78,43 +91,39 @@ const Profile = () => {
             </tr>
             <tr>
               <td>Username</td>
-              <td>{details.username}</td>
+              <td>{user.username}</td>
             </tr>
             <tr>
               <td>Email</td>
-              <td>{details.email}</td>
+              <td>{user.email}</td>
             </tr>
             <tr>
               <td>First name</td>
-              <td>{details.first_name}</td>
+              <td>{user.first_name}</td>
             </tr>
             <tr>
               <td>Last name</td>
-              <td>{details.last_name}</td>
+              <td>{user.last_name}</td>
             </tr>
             <tr>
               <td>Address</td>
-              <td>{details.street}</td>
+              <td>{user.street}</td>
             </tr>
             <tr>
               <td>City</td>
-              <td>{details.city}</td>
+              <td>{user.city}</td>
             </tr>
             <tr>
               <td>Zip code</td>
-              <td>{details.zip_code}</td>
+              <td>{user.zip_code}</td>
             </tr>
             <tr>
               <td>Country</td>
-              <td>{details.country}</td>
+              <td>{user.country}</td>
             </tr>
             <tr>
               <td>Password</td>
-              <td>{details.password}</td>
-            </tr>
-            <tr>
-              <td>Role</td>
-              <td>{details.role}</td>
+              <td>{user.password}</td>
             </tr>
           </tbody>
         </table>
@@ -122,13 +131,15 @@ const Profile = () => {
           <Link to={`/comments/${details.id}`} className="btn-mycomments">
             Accéder à mon historique de commentaires
           </Link>
+          <br></br>
+          <Link to={`/edit/${details.id}`}>Editer mon profil </Link>
         </div>
 
         <div>
           <h2>Mes informations surf</h2>
           <tbody>
             <tr>
-              <td>Mon niveau: {details.level}</td>
+              <td>Mon niveau: {user.level}</td>
             </tr>
             <tr>
               <td>Mes spots de références:</td>

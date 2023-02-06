@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 import MemberPage from "./components/MemberPage";
 import Survey from "./components/Survey";
 import jwt_decode from "jwt-decode";
+import EditUsers from "./components/EditUsers";
 
 const TheSwellRouter = () => {
   const token = localStorage.usertoken;
@@ -23,6 +24,7 @@ const TheSwellRouter = () => {
             <Route path="/profile" element={<Profile />} />
             <Route path="/member/:id" element={<MemberPage />} />
             <Route path="/survey" element={<Survey />} />
+            <Route path="/edit/:id" element={<EditUsers />} />
           </>
         )}
         {/* <Route path="/opinion" element={<Opinion />}/>
