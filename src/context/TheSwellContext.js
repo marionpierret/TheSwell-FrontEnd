@@ -15,12 +15,11 @@ export const TheSwellController = ({ children }) => {
   const [comments, setComments] = useState([]);
   const [surveys, setSurveys] = useState([]);
   const [users, setUsers] = useState([]);
-  const [spots, setSpots] = useState([])
+  const [spots, setSpots] = useState([]);
 
   const [loading, setLoading] = useState(false);
 
   // let { userId, spotId } = useParams();
-
 
   const fetchLocationData = async () => {
     try {
@@ -35,7 +34,7 @@ export const TheSwellController = ({ children }) => {
   };
 
   useEffect(() => {
-    fetchLocationData();
+    query && fetchLocationData();
   }, [query]);
 
   // fetch de l'API pour le surf
@@ -65,6 +64,7 @@ export const TheSwellController = ({ children }) => {
   };
 
   useEffect(() => {
+    locationData.length > 1 && 
     fetchSurfData();
     fetchWindData();
   }, [locationData.longitude, locationData.latitude]);
@@ -72,11 +72,9 @@ export const TheSwellController = ({ children }) => {
   // fetch de l'API TheSwell / Users
   const fetchUsersData = async () => {
     try {
-      const callData = await axios.get(
-        `http://localhost:8000/api/users`
-      );
+      const callData = await axios.get(`http://localhost:8000/api/users`);
       setUsers(callData.data);
-      console.log(callData.data)
+      console.log(callData.data);
     } catch (err) {
       console.log(err);
     }
@@ -89,9 +87,7 @@ export const TheSwellController = ({ children }) => {
   // fetch de l'API TheSwell / Spots
   const fetchSpotsData = async () => {
     try {
-      const callData = await axios.get(
-        `http://localhost:8000/api/spots`
-      );
+      const callData = await axios.get(`http://localhost:8000/api/spots`);
       setSpots(callData.data);
     } catch (err) {
       console.log(err);
@@ -141,7 +137,7 @@ export const TheSwellController = ({ children }) => {
         value6: [locationData, setLocationData],
         value7: [query, setQuery],
         value8: [input, setInput],
-        value9: [spots, setSpots]
+        value9: [spots, setSpots],
       }}
     >
       {loading && children}
