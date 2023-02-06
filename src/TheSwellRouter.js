@@ -19,11 +19,11 @@ const TheSwellRouter = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         {decoded && (
-          <div>
+          <>
             <Route path="/profile" element={<Profile />} />
             <Route path="/member/:id" element={<MemberPage />} />
             <Route path="/survey" element={<Survey />} />
-          </div>
+          </>
         )}
         {/* <Route path="/opinion" element={<Opinion />}/>
                 <Route path="/comments" element={<Comments />}/> */}

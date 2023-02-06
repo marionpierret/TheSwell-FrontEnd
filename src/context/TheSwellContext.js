@@ -63,9 +63,11 @@ export const TheSwellController = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    locationData.length > 1 && 
+  console.log(locationData)
+  useEffect(() => { 
+    locationData.latitude && locationData.longitude &&
     fetchSurfData();
+    locationData.latitude && locationData.longitude &&
     fetchWindData();
   }, [locationData.longitude, locationData.latitude]);
 
