@@ -8,7 +8,7 @@ const SurfMap = () => {
 
   return (
     <div className = "surfMap" style={{textAlign:'center'}}>
-      <Map height={300} width={600} defaultCenter={[locationData.latitude, locationData.longitude]} defaultZoom={11}>
+      <Map height={300} width={400} defaultCenter={[locationData.latitude, locationData.longitude]} defaultZoom={11}>
         <Marker width={50} anchor={[locationData.latitude, locationData.longitude]} />
       </Map>
     </div>

@@ -8,8 +8,8 @@ const SurfInfos = () => {
   const [surfData, setSurfData] = value1;
   const [windData, setWindData] = value5;
   const [query, setQuery] = value7;
-  console.log(surfData);
-  console.log(windData);
+  // console.log(surfData);
+  // console.log(windData);
 
   return (
     <div className='surf-card'>

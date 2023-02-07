@@ -2,38 +2,19 @@ import { useContext, useEffect, useState } from "react";
 import { TheSwellContext } from "../context/TheSwellContext";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
+import { useResolvedPath } from "react-router-dom";
 
 const RecommendedSpot = () => {
-  const { value1, value9 } = useContext(TheSwellContext);
+  const { value1, value9, value4 } = useContext(TheSwellContext);
   const [surfData, setSurfData] = value1;
   const [spots, setSpots] = value9;
+  const [users, setUsers] = value4
 
   const [loading, setLoading] = useState(false);
-  //   const [yourSurf, setYourSurf] = useState([]);
-  //   const [yourSpot, setYourSpot] = useState([]);
-
-//   const surfArray = [];
-  const matchLevelArray = [];
+  const [yourSurf, setYourSurf] = useState([]);
 
   const token = localStorage.usertoken;
   const decoded = token && jwt_decode(token);
-  //   console.log(decoded)
-  console.log(spots);
-
-  //   const whereToSurf = () => {
-  //     spots.map((e) => {
-  //       try {
-  //         const callData = axios.get(
-  //           `https://marine-api.open-meteo.com/v1/marine?latitude=${e.latitude}&longitude=${e.longitude}&hourly=wave_height&hourly=wave_period&hourly=wave_direction`
-  //         )
-  //         console.log(callData)
-  //         surfArray.push(callData)
-  //         setLoading(true);
-  //       } catch (err) {
-  //         console.log(err);
-  //       }
-  //     });
-  //   };
 
   const whereToSurf = async () => {
     const responseArray = await Promise.all(
@@ -43,25 +24,104 @@ const RecommendedSpot = () => {
             `https://marine-api.open-meteo.com/v1/marine?latitude=${e.latitude}&longitude=${e.longitude}&hourly=wave_height&hourly=wave_period&hourly=wave_direction`
           )
       )
-    )
-    console.log(responseArray)
-    const secondResponse = responseArray.map((e, i) => e.data.hourly.wave_height)
-    console.log(secondResponse)
-    const thirdResponse = secondResponse.map((e) => e.filter((el, i) => i<24))
-    const matchLevel1Array = thirdResponse.map((e, i) => e.filter((element) => element < 1.00 ))
-    console.log(matchLevel1Array)
-    const level = matchLevel1Array.map((e, i) => e!=0 && i)
-    console.log(level)
+    );
+    const secondArray = await responseArray.map((element) => {
+      return element.data.hourly.wave_height;
+    });
+    const first24Hours = await secondArray.map((element) => {
+      return element.slice(0, 24);
+    });
+    return first24Hours;
   };
 
-console.log(matchLevelArray)
+  async function fetchWhereToSurf() {
+    try {
+      const data = await whereToSurf();
+      setYourSurf(data);
+      setLoading(true)
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   useEffect(() => {
-    whereToSurf();
+    fetchWhereToSurf();
   }, []);
+
+  const newArray = yourSurf.map((e, id) => [
+    e,
+    spots[id].spot_name,
+    spots[id].latitude,
+    spots[id].longitude,
+  ]);
+  console.log(newArray)
+
+const levelOne = newArray.map((e, i) => [
+  e[0].filter(el => el < 1.00),
+  e[1]
+])
+
+const levelTwo = newArray.map((e, i) => [
+  e[0].filter(el => el < 1.50 && el > 1 ),
+  e[1]
+])
+
+const levelThree = newArray.map((e, i) => [
+  e[0].filter(el => el < 2.00 && el > 1.5),
+  e[1]
+])
+
+const levelFour = newArray.map((e, i) => [
+  e[0].filter(el => el > 2),
+  e[1]
+])
+
+
+const findUser = users.map((e) => {
+  return(
+    [e._id, e.level]
+  )
+})
+
 
   return (
     <div>
+    <div>
+    {loading && findUser.find(element => element[0] == decoded.user._id && element[1] === 1) &&
+    levelOne.map((e) => {
+      return (
+        e[0] != 0 &&
+        <div>{e[1]}</div>
+      )
+    })}
+    </div>
+    <div>
+    {loading && findUser.find(element => element[0] == decoded.user._id && element[1] === 2) &&
+    levelTwo.map((e) => {
+      return (
+        e[0] != 0 &&
+        <div>{e[1]}</div>
+      )
+    })}
+    </div>
+    <div>
+    {loading && findUser.find(element => element[0] == decoded.user._id && element[1] === 3) &&
+    levelThree.map((e) => {
+      return (
+        e[0] != 0 &&
+        <div>{e[1]}</div>
+      )
+    })}
+    </div>
+    <div>
+    {loading && findUser.find(element => element[0] == decoded.user._id && element[1] === 4) &&
+    levelFour.map((e) => {
+      return (
+        e[0] != 0 &&
+        <div>{e[1]}</div>
+      )
+    })}
+    </div>
     </div>
   );
 };

@@ -4,11 +4,19 @@
 
 body{
   background-color: #a79f83;
+  font-family: Helvetica, sans-serif;
+
 }
 
 .App {
+  display: flex; 
+  flex-direction: column;
   text-align: center;
   width: 800px;
+  margin: auto;
+  /* border: 10px #8b8574 solid; */
+box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+
 }
 
 /* .header{
@@ -20,21 +28,28 @@ height: 1000px;
 display: flex;
 flex-direction: row;
 justify-content: space-between;
-height: 30px;
-background-color: #a79f83;
+align-items: center;
+height: 35px;
+background-color: rgb(145,64,7);
 width: 800px;
+margin: auto;
 
 }
 
 .navbar img{
-width: 30px;
+  width: 30px;
+  margin-right: 10px;
+
+}
+
+.navHome{
+margin-left: 10px
 
 }
 
 .nav-link{
-color: white;
-margin-right: 10px;
-margin-left: 10px;
+display: flex; 
+justify-content: flex-end;
 }
 
 Link{
@@ -42,17 +57,38 @@ Link{
 }
 
 .map{
-width: 400px;
+border: 5px #8b8574 solid;
+border-radius: 4px;
+box-shadow: 10px 10px 10px black;
+margin: 10px;
 }
 
 .info{
   width: 400px;
-
+  text-align: center;
 }
 
 .mapWithInfos{
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
   width: auto;
   margin-top: 20px;
+}
+
+.presentation{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 800px;
+}
+
+.presentation p{
+  width : 85%;
+  margin: 10px auto 20px auto;
+  text-align: center;
 }

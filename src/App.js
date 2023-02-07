@@ -20,33 +20,39 @@ function App() {
       <div className="header">
         <img src={header} alt="" />
       </div>
-      <div className="Presentation">
+      <div className="presentation">
         <h1>Welcome!</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non
-          tempus urna. Sed sed tempor dui, et tempus libero. Suspendisse urna
-          sem, volutpat sit amet posuere quis, fringilla blandit tortor. Quisque
-          id mauris turpis. In pulvinar consequat imperdiet. Suspendisse
-          potenti. Proin cursus fringilla rhoncus. Donec vehicula lacinia risus
-          non ornare. Donec elementum erat vel tortor sodales, ac fringilla eros
-          cursus. Cras sagittis risus ac leo mollis, vel volutpat ipsum
-          molestie. Proin in scelerisque justo. Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit. Etiam euismod pharetra interdum. In eu
-          odio vel nunc dapibus tempus ut nec lorem. Nunc euismod diam sit.
+          Looking for the best place to surf? 
+          Whether you're a beginner or an experienced surfer, you're in the
+          right place! 
+          The Swell is there to help you find the best location to match your profile.
+          You can find all the interesting information and share your surf session experience. 
+          For this, do not hesitate to register and join the Swell community!
         </p>
       </div>
-      <SearchBar />
+      
       <div className="mapWithInfos">
+     
         <div className="map">
+        <SearchBar />
           <SurfMap />
         </div>
         <div className="info">
+          <tr>
+          <td style={{width: "100px"}}>
           <h2>Surf infos</h2>
+          </td>
+          </tr>
+          <tr>
+          <td>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
             cursus tempor ornare. Etiam congue justo a ante efficitur, in
             vestibulum.
           </p>
+          </td>
+          </tr>
         </div>
       </div>
       <Footer />

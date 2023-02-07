@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { TheSwellContext } from "../context/TheSwellContext";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import '../css/Surveys.css'
 
@@ -20,12 +20,19 @@ const Survey = () => {
 
   const [surveyData, setSurveyData] = useState();
 
+  const { value9 } = useContext(TheSwellContext);
+  const [spots, setSpots] = value9;
+
+  let {id} = useParams()
+
+const findSpotName = spots.find((element) => element._id == id)
+console.log(findSpotName)
+
   // Récupère la data du user
   const token = localStorage.usertoken;
   const decoded = jwt_decode(token);
 
   let navigate = useNavigate();
-  console.log(decoded.user._id);
 
   const createSurvey = (e) => {
     e.preventDefault();
@@ -41,7 +48,8 @@ const Survey = () => {
       swimmers: swimmers,
       mood: mood,
       userId: decoded.user._id,
-      spotId: spotId,
+      spotId: id,
+      spot_name: findSpotName.spot_name,
     };
 
     // const formData = new FormData();
@@ -66,7 +74,7 @@ const Survey = () => {
       .then((res) => {
         console.log(res);
         setSurveyData(res);
-        // navigate('/profile')
+        navigate(`/spot/${id}`)
       })
       .catch((err) => console.log(err));
   };
@@ -76,6 +84,7 @@ const Survey = () => {
       <form className="form" onSubmit={createSurvey}>
         <h1>Give us your feedback</h1>
         <h4>1 being the lowest, 10 the highest</h4>
+        <h4>{findSpotName.spot_name}</h4>
         <div>
           <label className="label">How crowded was the spot ?</label>
           <input
@@ -168,7 +177,7 @@ const Survey = () => {
             onChange={(e) => setMood(e.target.value)}
           />
         </div>
-        <div>
+        {/* <div>
           <label className="label">SpotId</label>
           <input
             className="input"
@@ -176,7 +185,7 @@ const Survey = () => {
             value={spotId}
             onChange={(e) => setSpotId(e.target.value)}
           />
-        </div>
+        </div> */}
         <button type="submit">Submit</button>
       </form>
     </div>

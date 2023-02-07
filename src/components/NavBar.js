@@ -15,37 +15,34 @@ const Navbar = () => {
   };
 
   const loginRegLink = (
-    <div className="navbar">
       <div className="nav-link">
-        <Link to="/login" className="nav-link">
+        <Link to="/login">
           <img src={iconLogin} alt="login" />
         </Link>
 
-        <Link to="/register" className="nav-link">
+        <Link to="/register" >
           <img src={iconRegister} alt="register" />
         </Link>
       </div>
-    </div>
   );
 
   const userLink = (
-    <div className="navbar">
       <div className="nav-link">
-        <Link to="/profile" className="nav-link">
+        <Link to="/profile">
           <img src={iconProfile} alt="my-profile"></img>
         </Link>
 
-        <a href="" onClick={logOut} className="nav-link">
+        <a href="" onClick={logOut}>
           <img src={iconLogin} alt="logout" />
         </a>
       </div>
-    </div>
+   
   );
 
   return (
     <div className="navbar">
-      <Link to="/" className="nav-link">
-        <img src={iconHome} alt="home" />
+      <Link to="/">
+        <img src={iconHome} alt="home" className="navHome"/>
       </Link>
       {localStorage.usertoken ? userLink : loginRegLink}
     </div>

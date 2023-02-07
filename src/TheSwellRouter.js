@@ -8,6 +8,7 @@ import MemberPage from "./components/MemberPage";
 import Survey from "./components/Survey";
 import jwt_decode from "jwt-decode";
 import EditUsers from "./components/EditUsers";
+import SurveysHistory from "./components/SurveysHistory";
 
 const TheSwellRouter = () => {
   const token = localStorage.usertoken;
@@ -22,8 +23,9 @@ const TheSwellRouter = () => {
         {decoded && (
           <>
             <Route path="/profile" element={<Profile />} />
-            <Route path="/member/:id" element={<MemberPage />} />
-            <Route path="/survey" element={<Survey />} />
+            <Route path="/spot/:id" element={<MemberPage />} />
+            <Route path="/survey/spot/:id" element={<Survey />} />
+            <Route path="/surveys/:id" element={<SurveysHistory/>} />
             <Route path="/edit/:id" element={<EditUsers />} />
           </>
         )}

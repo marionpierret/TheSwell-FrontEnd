@@ -83,51 +83,49 @@ const Profile = () => {
               <h2>Vos informations</h2>
             </td>
           </tr>
+          <div className = "persoInfos">
           <tr>
-            <td>Id</td>
+            <td>Id:</td>
             <td>{details.id}</td>
           </tr>
           <tr>
-            <td>Username</td>
+            <td>Username:</td>
             <td>{user.username}</td>
           </tr>
           <tr>
-            <td>Email</td>
+            <td>Email:</td>
             <td>{user.email}</td>
           </tr>
           <tr>
-            <td>First name</td>
+            <td>First name:</td>
             <td>{user.first_name}</td>
           </tr>
           <tr>
-            <td>Last name</td>
+            <td>Last name:</td>
             <td>{user.last_name}</td>
           </tr>
           <tr>
-            <td>Address</td>
+            <td>Address:</td>
             <td>{user.street}</td>
           </tr>
           <tr>
-            <td>City</td>
+            <td>City:</td>
             <td>{user.city}</td>
           </tr>
           <tr>
-            <td>Zip code</td>
+            <td>Zip code:</td>
             <td>{user.zip_code}</td>
           </tr>
           <tr>
-            <td>Country</td>
+            <td>Country:</td>
             <td>{user.country}</td>
           </tr>
-          <tr>
-            <td>Password</td>
-            <td>{user.password}</td>
-          </tr>
+          </div>
         </tbody>
       </table>
       <div>
         <button className="button-name">
-          <Link to={`/comments/${details.id}`} className="btn-mycomments">
+          <Link to={`/surveys/${details.id}`} className="btn-mycomments">
             Surveys history
           </Link>
         </button>

@@ -4,7 +4,7 @@ import SurfInfos from "./SurfInfos";
 import SurfMap from "./SurfMap";
 import SurveysAnswer from "./SurveysAnswer";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const MemberPage = () => {
   const [isShown, setIsShown] = useState(true);
@@ -12,6 +12,8 @@ const MemberPage = () => {
   const handleClick = (event) => {
     setIsShown((current) => !current);
   };
+
+  let {id} = useParams()
 
   return (
     <div>
@@ -23,7 +25,7 @@ const MemberPage = () => {
           className="button-name"
           style={{ margin: "25px 40px" }}
         >
-          <Link to={'/survey'}>Give us your feedback</Link>
+          <Link to={`/survey/spot/${id}`}>Give us your feedback</Link>
         </button>
         <button
           onClick={handleClick}
@@ -37,7 +39,7 @@ const MemberPage = () => {
           <SurveysAnswer />
         </div>
       </div>
-      {/* <RecommendedSpot /> */}
+      <RecommendedSpot />
     </div>
   );
 };

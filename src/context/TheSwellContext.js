@@ -63,7 +63,7 @@ export const TheSwellController = ({ children }) => {
     }
   };
 
-  console.log(locationData)
+
   useEffect(() => { 
     locationData.latitude && locationData.longitude &&
     fetchSurfData();
@@ -76,7 +76,6 @@ export const TheSwellController = ({ children }) => {
     try {
       const callData = await axios.get(`http://localhost:8000/api/users`);
       setUsers(callData.data);
-      console.log(callData.data);
     } catch (err) {
       console.log(err);
     }

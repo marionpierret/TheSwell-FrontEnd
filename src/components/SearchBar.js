@@ -4,9 +4,10 @@ import jwt_decode from "jwt-decode";
 import { Link } from "react-router-dom";
 
 const SearchBar = () => {
-  const { value7, value8 } = useContext(TheSwellContext);
+  const { value7, value8, value9 } = useContext(TheSwellContext);
   const [query, setQuery] = value7;
   const [input, setInput] = value8;
+  const [spots, setSpots] = value9
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -14,10 +15,16 @@ const SearchBar = () => {
     setQuery(input);
   };
 
+  const idSpot = spots.find((element) => element.spot_name == query)
+  console.log(idSpot)
+
   const token = localStorage.usertoken;
   const decoded = token && jwt_decode(token);
 
   return (
+<div>
+
+  
     <form onSubmit={handleClick}>
       <input
         type="text"
@@ -26,12 +33,13 @@ const SearchBar = () => {
         onChange={(e) => setInput(e.target.value)}
       />
       <button type="submit">Rechercher</button>
-      {decoded ? (
-        <Link to={`/member/${decoded.user._id}`}>Spot détails</Link>
+      {decoded && idSpot ? (
+        <Link to={`/spot/${idSpot._id}`}>Spot détails</Link>
       ) : (
         <Link to={`/`}></Link>
       )}
     </form>
+    </div>
   );
 };
 
