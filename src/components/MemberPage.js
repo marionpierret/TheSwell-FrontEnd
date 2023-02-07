@@ -13,11 +13,12 @@ const MemberPage = () => {
     setIsShown((current) => !current);
   };
 
-  let {id} = useParams()
+  let { id } = useParams();
 
   return (
     <div>
       <SurfMap />
+      <RecommendedSpot />
       <SurfInfos />
       <div style={{ textAlign: "center" }}>
         <button
@@ -39,7 +40,6 @@ const MemberPage = () => {
           <SurveysAnswer />
         </div>
       </div>
-      <RecommendedSpot />
     </div>
   );
 };

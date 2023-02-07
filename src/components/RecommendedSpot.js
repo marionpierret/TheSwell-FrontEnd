@@ -3,12 +3,13 @@ import { TheSwellContext } from "../context/TheSwellContext";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 import { useResolvedPath } from "react-router-dom";
+import "../css/RecommendedSpot.css";
 
 const RecommendedSpot = () => {
   const { value1, value9, value4 } = useContext(TheSwellContext);
   const [surfData, setSurfData] = value1;
   const [spots, setSpots] = value9;
-  const [users, setUsers] = value4
+  const [users, setUsers] = value4;
 
   const [loading, setLoading] = useState(false);
   const [yourSurf, setYourSurf] = useState([]);
@@ -38,7 +39,7 @@ const RecommendedSpot = () => {
     try {
       const data = await whereToSurf();
       setYourSurf(data);
-      setLoading(true)
+      setLoading(true);
     } catch (err) {
       console.log(err);
     }
@@ -54,74 +55,70 @@ const RecommendedSpot = () => {
     spots[id].latitude,
     spots[id].longitude,
   ]);
-  console.log(newArray)
+  console.log(newArray);
 
-const levelOne = newArray.map((e, i) => [
-  e[0].filter(el => el < 1.00),
-  e[1]
-])
+  const levelOne = newArray.map((e, i) => [
+    e[0].filter((el) => el < 1.0),
+    e[1],
+  ]);
 
-const levelTwo = newArray.map((e, i) => [
-  e[0].filter(el => el < 1.50 && el > 1 ),
-  e[1]
-])
+  const levelTwo = newArray.map((e, i) => [
+    e[0].filter((el) => el < 1.5 && el > 1),
+    e[1],
+  ]);
 
-const levelThree = newArray.map((e, i) => [
-  e[0].filter(el => el < 2.00 && el > 1.5),
-  e[1]
-])
+  const levelThree = newArray.map((e, i) => [
+    e[0].filter((el) => el < 2.0 && el > 1.5),
+    e[1],
+  ]);
 
-const levelFour = newArray.map((e, i) => [
-  e[0].filter(el => el > 2),
-  e[1]
-])
+  const levelFour = newArray.map((e, i) => [e[0].filter((el) => el > 2), e[1]]);
 
-
-const findUser = users.map((e) => {
-  return(
-    [e._id, e.level]
-  )
-})
-
+  const findUser = users.map((e) => {
+    return [e._id, e.level];
+  });
 
   return (
     <div>
-    <div>
-    {loading && findUser.find(element => element[0] == decoded.user._id && element[1] === 1) &&
-    levelOne.map((e) => {
-      return (
-        e[0] != 0 &&
-        <div>{e[1]}</div>
-      )
-    })}
-    </div>
-    <div>
-    {loading && findUser.find(element => element[0] == decoded.user._id && element[1] === 2) &&
-    levelTwo.map((e) => {
-      return (
-        e[0] != 0 &&
-        <div>{e[1]}</div>
-      )
-    })}
-    </div>
-    <div>
-    {loading && findUser.find(element => element[0] == decoded.user._id && element[1] === 3) &&
-    levelThree.map((e) => {
-      return (
-        e[0] != 0 &&
-        <div>{e[1]}</div>
-      )
-    })}
-    </div>
-    <div>
-    {loading && findUser.find(element => element[0] == decoded.user._id && element[1] === 4) &&
-    levelFour.map((e) => {
-      return (
-        e[0] != 0 &&
-        <div>{e[1]}</div>
-      )
-    })}
-    </div>
+      <h4>Best spots for you to surf !</h4>
+      <div className="spot-card scroll">
+        <div className="div">
+          {loading &&
+            findUser.find(
+              (element) => element[0] == decoded.user._id && element[1] === 1
+            ) &&
+            levelOne.map((e) => {
+              return e[0] != 0 && <div className="spot">{e[1]}</div>;
+            })}
+        </div>
+        <div>
+          {loading &&
+            findUser.find(
+              (element) => element[0] == decoded.user._id && element[1] === 2
+            ) &&
+            levelTwo.map((e) => {
+              return e[0] != 0 && <div>{e[1]}</div>;
+            })}
+        </div>
+        <div>
+          {loading &&
+            findUser.find(
+              (element) => element[0] == decoded.user._id && element[1] === 3
+            ) &&
+            levelThree.map((e) => {
+              return e[0] != 0 && <div>{e[1]}</div>;
+            })}
+        </div>
+        <div>
+          {loading &&
+            findUser.find(
+              (element) => element[0] == decoded.user._id && element[1] === 4
+            ) &&
+            levelFour.map((e) => {
+              return e[0] != 0 && <div>{e[1]}</div>;
+            })}
+        </div>
+      </div>
     </div>
   );
 };
