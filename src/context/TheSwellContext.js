@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 
 export const TheSwellContext = createContext();
 
@@ -18,8 +17,6 @@ export const TheSwellController = ({ children }) => {
   const [spots, setSpots] = useState([]);
 
   const [loading, setLoading] = useState(false);
-
-  // let { userId, spotId } = useParams();
 
   const fetchLocationData = async () => {
     try {
@@ -62,7 +59,6 @@ export const TheSwellController = ({ children }) => {
       console.log(err);
     }
   };
-
 
   useEffect(() => { 
     locationData.latitude && locationData.longitude &&
@@ -125,7 +121,7 @@ export const TheSwellController = ({ children }) => {
 
   useEffect(() => {
     fetchSurveysData();
-  }, []);
+  }, [surveys.length]);
 
   return (
     <TheSwellContext.Provider

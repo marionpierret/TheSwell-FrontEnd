@@ -13,11 +13,12 @@
   transform: scale(1.1);
 } */
 
-.row {
+.row-answer {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin: 0px 10px;
 }
 
 p{

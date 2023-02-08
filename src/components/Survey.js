@@ -3,7 +3,7 @@ import { TheSwellContext } from "../context/TheSwellContext";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import jwt_decode from "jwt-decode";
-import '../css/Surveys.css'
+import "../css/Surveys.css";
 
 const Survey = () => {
   const [crowd, setCrowd] = useState(0);
@@ -15,18 +15,15 @@ const Survey = () => {
   const [restaurant, setRestaurant] = useState(0);
   const [swimmers, setSwimmers] = useState(0);
   const [mood, setMood] = useState(0);
-  const [userId, setUserId] = useState(0);
-  const [spotId, setSpotId] = useState(0);
 
   const [surveyData, setSurveyData] = useState();
 
   const { value9 } = useContext(TheSwellContext);
   const [spots, setSpots] = value9;
 
-  let {id} = useParams()
+  let { id } = useParams();
 
-const findSpotName = spots.find((element) => element._id == id)
-console.log(findSpotName)
+  const findSpotName = spots.find((element) => element._id == id);
 
   // Récupère la data du user
   const token = localStorage.usertoken;
@@ -52,19 +49,6 @@ console.log(findSpotName)
       spot_name: findSpotName.spot_name,
     };
 
-    // const formData = new FormData();
-    // formData.append("crowd", crowd);
-    // formData.append("match_condition", matchCondition);
-    // formData.append("current", current);
-    // formData.append("parking", parking);
-    // formData.append("clean", clean);
-    // formData.append("danger", danger);
-    // formData.append("restaurants", restaurant);
-    // formData.append("swimmers", swimmers);
-    // formData.append("mood", mood);
-    // formData.append("userId", decoded.user._id);
-    // formData.append("spotId", spots)
-
     axios
       .post("http://localhost:8000/api/surveys", newSurvey, {
         headers: {
@@ -72,15 +56,14 @@ console.log(findSpotName)
         },
       })
       .then((res) => {
-        console.log(res);
         setSurveyData(res);
-        navigate(`/spot/${id}`)
+        navigate(`/spot/${id}`);
       })
       .catch((err) => console.log(err));
   };
 
   return (
-    <div style={{display:'flex', justifyContent:'center'}}>
+    <div style={{ display: "flex", justifyContent: "center" }}>
       <form className="form" onSubmit={createSurvey}>
         <h1>Give us your feedback</h1>
         <h4>1 being the lowest, 10 the highest</h4>
@@ -96,7 +79,9 @@ console.log(findSpotName)
           />
         </div>
         <div>
-          <label className="label">Did the conditions matched the surf report ?</label>
+          <label className="label">
+            Did the conditions matched the surf report ?
+          </label>
           <input
             className="input"
             type="number"
@@ -177,15 +162,6 @@ console.log(findSpotName)
             onChange={(e) => setMood(e.target.value)}
           />
         </div>
-        {/* <div>
-          <label className="label">SpotId</label>
-          <input
-            className="input"
-            type="text"
-            value={spotId}
-            onChange={(e) => setSpotId(e.target.value)}
-          />
-        </div> */}
         <button type="submit">Submit</button>
       </form>
     </div>

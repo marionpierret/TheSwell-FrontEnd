@@ -1,13 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
-import { TheSwellContext } from "../context/TheSwellContext";
+import React, { useState, useEffect } from "react";
 import jwt_decode from "jwt-decode";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "../css/Profile.css";
 
 const Profile = () => {
-  let { userId } = useParams();
-
   const initialValue = {
     id: "",
     username: "",
@@ -38,7 +35,6 @@ const Profile = () => {
   const getProfil = async () => {
     const token = await localStorage.usertoken;
     const decoded = await jwt_decode(token);
-    console.log(decoded.user._id);
 
     axios
       .get(`http://localhost:8000/api/users/${decoded.user._id}`)
@@ -60,7 +56,7 @@ const Profile = () => {
       role: decoded.user.role,
     });
   };
-  // console.log(user.image);
+
   return (
     <div className="profile">
       <div>
@@ -82,7 +78,9 @@ const Profile = () => {
               <p>{user.level}</p>
             </div>
             <div>
-              <h4 style={{textAlign:'left', marginLeft:'75px'}}>How do determine my level ?</h4>
+              <h4 style={{ textAlign: "left", marginLeft: "75px" }}>
+                How do I determine my level ?
+              </h4>
               <div className="row">
                 <h4>Level 1 :</h4>
                 <p>Beginner, waves under 1m</p>
@@ -103,45 +101,45 @@ const Profile = () => {
           </div>
         </div>
         <div className="infos-card">
-            <h2 className="title">Vos informations</h2>
-            <div className="infos">
-              <div className="row">
-                <h4>Id :</h4>
-                <p>{details.id}</p>
-              </div>
-              <div className="row">
-                <h4>Username :</h4>
-                <p>{user.username}</p>
-              </div>
-              <div className="row">
-                <h4>Email :</h4>
-                <p>{user.email}</p>
-              </div>
-              <div className="row">
-                <h4>First name :</h4>
-                <p>{user.first_name}</p>
-              </div>
-              <div className="row">
-                <h4>Last name :</h4>
-                <p>{user.last_name}</p>
-              </div>
-              <div className="row">
-                <h4>Address</h4>
-                <p>{user.street}</p>
-              </div>
-              <div className="row">
-                <h4>City :</h4>
-                <p>{user.city}</p>
-              </div>
-              <div className="row">
-                <h4>Zip code :</h4>
-                <p>{user.zip_code}</p>
-              </div>
-              <div className="row">
-                <h4>Country :</h4>
-                <p>{user.country}</p>
-              </div>
+          <h2 className="title">Vos informations</h2>
+          <div className="infos">
+            <div className="row">
+              <h4>Id :</h4>
+              <p>{details.id}</p>
             </div>
+            <div className="row">
+              <h4>Username :</h4>
+              <p>{user.username}</p>
+            </div>
+            <div className="row">
+              <h4>Email :</h4>
+              <p>{user.email}</p>
+            </div>
+            <div className="row">
+              <h4>First name :</h4>
+              <p>{user.first_name}</p>
+            </div>
+            <div className="row">
+              <h4>Last name :</h4>
+              <p>{user.last_name}</p>
+            </div>
+            <div className="row">
+              <h4>Address</h4>
+              <p>{user.street}</p>
+            </div>
+            <div className="row">
+              <h4>City :</h4>
+              <p>{user.city}</p>
+            </div>
+            <div className="row">
+              <h4>Zip code :</h4>
+              <p>{user.zip_code}</p>
+            </div>
+            <div className="row">
+              <h4>Country :</h4>
+              <p>{user.country}</p>
+            </div>
+          </div>
         </div>
       </div>
 

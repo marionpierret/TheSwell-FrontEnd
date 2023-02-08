@@ -1,4 +1,3 @@
-import Navbar from "./NavBar";
 import RecommendedSpot from "./RecommendedSpot";
 import SurfInfos from "./SurfInfos";
 import SurfMap from "./SurfMap";

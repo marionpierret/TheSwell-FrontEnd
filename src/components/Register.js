@@ -25,22 +25,6 @@ const Register = () => {
   const createUser = (e) => {
     e.preventDefault();
 
-    // const newUser = {
-    //   // creates new object with name,email, password
-    //   username: username, // using useStates
-    //   first_name: firstName,
-    //   last_name: lastName,
-    //   street: street,
-    //   city: city,
-    //   zip_code: zipCode,
-    //   country: country,
-    //   email: email,
-    //   password: password,
-    //   level: level,
-    //   image: image,
-    //   role: role,
-    // };
-
     const formData = new FormData();
     formData.append("username", username);
     formData.append("image", image);
@@ -62,15 +46,10 @@ const Register = () => {
         },
       })
       .then((response) => {
-        console.log(response);
         setData(response.data);
         navigate("/login");
       })
       .catch((err) => console.log(err));
-
-    // register(newUser).then(res => { // calls the register function from UserFunctions.js and passes newUser as argument
-    //   navigate(`/login`) // then navigates to login
-    // })
   };
 
   return (
@@ -78,7 +57,7 @@ const Register = () => {
       <div className="register-box">
         <div className="register-txt">
           <tr>
-          <td style={{ textAlign: "center" }}>
+            <td style={{ textAlign: "center" }}>
               <h2>Register</h2>
             </td>
             <td>
@@ -199,23 +178,17 @@ const Register = () => {
             />
             <label>Role</label>
           </div>
-          <div className='submitBtn'>
-          <button type='submit' className='registerBtn'>
-        <span>Submit</span>
-    <div className="top"></div>
-    <div className="left"></div>
-    <div className="bottom"></div>
-    <div className="right"></div>
-          </button>
+          <div className="submitBtn">
+            <button type="submit" className="registerBtn">
+              <span>Submit</span>
+              <div className="top"></div>
+              <div className="left"></div>
+              <div className="bottom"></div>
+              <div className="right"></div>
+            </button>
           </div>
         </form>
       </div>
-      {data && (
-        <>
-          {/* <h1>{data.nameFile}</h1> */}
-          {/* <img width={'200px'} src={`http://localhost:8000/api/users${data.image}`} alt={data.image}/>  */}
-        </>
-      )}
     </div>
   );
 };

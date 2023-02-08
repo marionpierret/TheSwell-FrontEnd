@@ -6,15 +6,11 @@ import "../css/RecommendedSpot.css";
 
 const RecommendedSpot = () => {
   const { value1, value9, value4 } = useContext(TheSwellContext);
-  const [surfData, setSurfData] = value1;
   const [spots, setSpots] = value9;
   const [users, setUsers] = value4;
 
   const [oneUser, setOneUser] = useState();
   let lvl = [];
-  // console.log(oneUser.level)
-  // const oneUserLevel = oneUser.level
-  // console.log(oneUserLevel)
 
   const [loading, setLoading] = useState(false);
   const [secondLoading, setSecondLoading] = useState(false);
@@ -46,7 +42,6 @@ const RecommendedSpot = () => {
       const callData = await axios.get(
         `http://localhost:8000/api/users/${decoded.user._id}`
       );
-      console.log(callData.data);
       setOneUser(callData.data);
       setSecondLoading(true);
       if (oneUser.level == 1) {
@@ -76,34 +71,12 @@ const RecommendedSpot = () => {
     }
   }
 
-  // useEffect(() => {
-  //   fetchMyUser();
-  //   if (oneUser.level == 1) {
-  //     lvl = levelOne;
-  //   }
-  //   if (oneUser.level == 2) {
-  //     lvl = levelTwo;
-  //   }
-  //   if (oneUser.level == 3) {
-  //     lvl = levelThree;
-  //   }
-  //   if (oneUser.level == 4) {
-  //     lvl = levelFour;
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   fetchMyUser();
-  //   fetchWhereToSurf();
-  // }, []);
-
   const newArray = yourSurf.map((e, id) => [
     e,
     spots[id].spot_name,
     spots[id].latitude,
     spots[id].longitude,
   ]);
-  console.log(newArray);
 
   const levelOne = newArray.map((e, i) => [
     e[0].filter((el) => el < 1.0),
@@ -136,63 +109,34 @@ const RecommendedSpot = () => {
       <h4>Best spots for you to surf !</h4>
       <div className="spot-card scroll">
         <div className="div">
-          {/* <div>
-            {loading &&
-              lvl.map((e) => {
-                return e[0] != 0 && <div className="spot">{e[1]}</div>;
-              })}
-          </div> */}
           <div>
-            {secondLoading && oneUser.level === 1 && 
-              levelOne.map((e) => {
-                return e[0] != 0 && <div className="spot">{e[1]}</div>;
+            {secondLoading &&
+              oneUser.level === 1 &&
+              levelOne.map((e, i) => {
+                return e[0] != 0 && <div className="spot" key={i}>{e[1]}</div>;
               })}
           </div>
           <div>
-            {secondLoading && oneUser.level === 2 && 
-              levelTwo.map((e) => {
-                return e[0] != 0 && <div className="spot">{e[1]}</div>;
+            {secondLoading &&
+              oneUser.level === 2 &&
+              levelTwo.map((e, i) => {
+                return e[0] != 0 && <div className="spot" key={i}>{e[1]}</div>;
               })}
           </div>
           <div>
-            {secondLoading && oneUser.level === 3 && 
-              levelThree.map((e) => {
-                return e[0] != 0 && <div className="spot">{e[1]}</div>;
+            {secondLoading &&
+              oneUser.level === 3 &&
+              levelThree.map((e, i) => {
+                return e[0] != 0 && <div className="spot" key={i}>{e[1]}</div>;
               })}
           </div>
           <div>
-            {secondLoading && oneUser.level === 4 && 
-              levelFour.map((e) => {
-                return e[0] != 0 && <div className="spot">{e[1]}</div>;
+            {secondLoading &&
+              oneUser.level === 4 &&
+              levelFour.map((e, i) => {
+                return e[0] != 0 && <div className="spot" key={i}>{e[1]}</div>;
               })}
           </div>
-          {/* <div>
-            {loading &&
-              findUser.find(
-                (element) => element[0] == decoded.user._id && element[1] === 2
-              ) &&
-              levelTwo.map((e) => {
-                return e[0] != 0 && <div className="spot">{e[1]}</div>;
-              })}
-          </div>
-          <div>
-            {loading &&
-              findUser.find(
-                (element) => element[0] == decoded.user._id && element[1] === 3
-              ) &&
-              levelThree.map((e) => {
-                return e[0] != 0 && <div className="spot">{e[1]}</div>;
-              })}
-          </div>
-          <div>
-            {loading &&
-              findUser.find(
-                (element) => element[0] == decoded.user._id && element[1] === 4
-              ) &&
-              levelFour.map((e) => {
-                return e[0] != 0 && <div className="spot">{e[1]}</div>;
-              })}
-          </div> */}
         </div>
       </div>
     </div>

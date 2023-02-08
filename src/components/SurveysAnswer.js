@@ -71,7 +71,7 @@ const SurveysAnswer = () => {
       swimmersArray != 0.0 &&
       matchConditionArray != 0.0 ? (
         <div style={{display:'flex', flexDirection:'column', alignContent:'flex-start'}}>
-          <div className='row'>
+          <div className='row-answer'>
             <p>How clean was the spot today ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
@@ -80,7 +80,7 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
-          <div className='row'>
+          <div className='row-answer'>
             <p>How crowded was the spot today ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
@@ -89,7 +89,7 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
-          <div className='row'>
+          <div className='row-answer'>
             <p>How bad was the current today ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
@@ -98,7 +98,7 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
-          <div className='row'>
+          <div className='row-answer'>
             <p>Were there some danger in te water ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
@@ -107,7 +107,7 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
-          <div className='row'>
+          <div className='row-answer'>
             <p>How welcoming were the locals ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
@@ -116,7 +116,7 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
-          <div className='row'>
+          <div className='row-answer'>
             <p>Were there parking spots available ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
@@ -125,7 +125,7 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
-          <div className='row'>
+          <div className='row-answer'>
             <p>Spots to eat and drink around ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
@@ -134,7 +134,7 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
-          <div className='row'>
+          <div className='row-answer'>
             <p>Were there many swimmers ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
@@ -143,7 +143,7 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
-          <div className='row'>
+          <div className='row-answer'>
             <p>Did the conditions matched the report ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
