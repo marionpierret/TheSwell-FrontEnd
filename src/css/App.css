@@ -5,6 +5,13 @@
 body{
   background-color: #a79f83;
   font-family: Helvetica, sans-serif;
+  display: flex; 
+  flex-direction: column;
+  text-align: center;
+  width: 1200px;
+  margin: auto;
+  /* border: 10px #8b8574 solid; */
+box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 
 }
 
@@ -12,7 +19,7 @@ body{
   display: flex; 
   flex-direction: column;
   text-align: center;
-  width: 800px;
+  width: 1200px;
   margin: auto;
   /* border: 10px #8b8574 solid; */
 box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
@@ -29,10 +36,14 @@ display: flex;
 flex-direction: row;
 justify-content: space-between;
 align-items: center;
-height: 35px;
-background-color: rgb(145,64,7);
-width: 800px;
+height: 40px;
+background: rgb(145,64,7);
+background: linear-gradient(90deg, rgba(145,64,7,1) 0%, rgba(194,120,32,1) 100%);
+width: 1200px;
 margin: auto;
+border-top-left-radius: 10px 10px;
+border-top-right-radius: 10px 10px;
+
 
 }
 
@@ -57,15 +68,22 @@ Link{
 }
 
 .map{
-border: 5px #8b8574 solid;
+/* border: 5px #8b8574 solid; */
 border-radius: 4px;
-box-shadow: 10px 10px 10px black;
+box-shadow: 0px -25px 20px -20px rgba(0,0,0,0.45),
+25px 0px 20px -20px rgba(0,0,0,0.45),
+0px 25px 20px -20px rgba(0,0,0,0.45),
+-25px 0px 20px -20px rgba(0,0,0,0.45);
 margin: 10px;
 }
 
 .info{
-  width: 400px;
+  width: 200px;
   text-align: center;
+  border: 1px black solid;
+  border-radius: 4%;
+  box-shadow: 10px 10px 10px black;
+  margin-left: 40px
 }
 
 .mapWithInfos{
@@ -74,8 +92,8 @@ margin: 10px;
   justify-content: center;
   align-items: center;
   align-content: center;
-  width: auto;
-  margin-top: 20px;
+  width: 1100px;
+  margin: auto;
 }
 
 .presentation{
@@ -84,11 +102,60 @@ margin: 10px;
   justify-content: center;
   align-items: center;
   margin: auto;
-  width: 800px;
+  width: 1100px;
+
 }
 
 .presentation p{
   width : 85%;
   margin: 10px auto 20px auto;
   text-align: center;
+}
+
+
+.footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /* border-top: 1px solid black; */
+  margin-top: 0px;
+  line-height: 15%;
+  box-shadow: 0px -3px 12px -5px rgba(0,0,0,0.22);
+}
+
+.footer button {
+  padding: 0.8em 1em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  margin-left: 5px;
+}
+
+.footer a{
+  text-decoration: none;
+
+}
+
+.footerLinks{
+  display: flex;
+  align-content: center;
+  height: 50%;
+  margin: auto 0px
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between; */
+}
+
+.footerLinks img{
+  width: 2.3em
 }

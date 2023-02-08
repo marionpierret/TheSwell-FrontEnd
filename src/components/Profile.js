@@ -66,64 +66,86 @@ const Profile = () => {
       <div>
         <h1>YOUR PROFILE</h1>
       </div>
-      <table>
-        <tbody>
-          <tr>
-            <td className="circle-image">
-              <img
-                src={`http://localhost:8000${user.image}`}
-                alt=""
-                className="img"
-              />
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <h2>Vos informations</h2>
-            </td>
-          </tr>
-          <div className = "persoInfos">
-          <tr>
-            <td>Id:</td>
-            <td>{details.id}</td>
-          </tr>
-          <tr>
-            <td>Username:</td>
-            <td>{user.username}</td>
-          </tr>
-          <tr>
-            <td>Email:</td>
-            <td>{user.email}</td>
-          </tr>
-          <tr>
-            <td>First name:</td>
-            <td>{user.first_name}</td>
-          </tr>
-          <tr>
-            <td>Last name:</td>
-            <td>{user.last_name}</td>
-          </tr>
-          <tr>
-            <td>Address:</td>
-            <td>{user.street}</td>
-          </tr>
-          <tr>
-            <td>City:</td>
-            <td>{user.city}</td>
-          </tr>
-          <tr>
-            <td>Zip code:</td>
-            <td>{user.zip_code}</td>
-          </tr>
-          <tr>
-            <td>Country:</td>
-            <td>{user.country}</td>
-          </tr>
-          </div>
-        </tbody>
-      </table>
       <div>
+        <div className="image-surf-infos">
+          <div className="circle-image">
+            <img
+              src={`http://localhost:8000${user.image}`}
+              alt=""
+              className="img"
+            />
+          </div>
+          <div className="surf-infos-card">
+            <h2>My surf informations</h2>
+            <div className="row border-style">
+              <h4>Level :</h4>
+              <p>{user.level}</p>
+            </div>
+            <div>
+              <h4 style={{textAlign:'left', marginLeft:'75px'}}>How do determine my level ?</h4>
+              <div className="row">
+                <h4>Level 1 :</h4>
+                <p>Beginner, waves under 1m</p>
+              </div>
+              <div className="row">
+                <h4>Level 2 :</h4>
+                <p>Intermediate, waves between 1m and 1,5m</p>
+              </div>
+              <div className="row">
+                <h4>Level 3 :</h4>
+                <p>Good, waves between 1,5m and 2m</p>
+              </div>
+              <div className="row">
+                <h4>Level 4 :</h4>
+                <p>Expert, waves over 2m</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="infos-card">
+            <h2 className="title">Vos informations</h2>
+            <div className="infos">
+              <div className="row">
+                <h4>Id :</h4>
+                <p>{details.id}</p>
+              </div>
+              <div className="row">
+                <h4>Username :</h4>
+                <p>{user.username}</p>
+              </div>
+              <div className="row">
+                <h4>Email :</h4>
+                <p>{user.email}</p>
+              </div>
+              <div className="row">
+                <h4>First name :</h4>
+                <p>{user.first_name}</p>
+              </div>
+              <div className="row">
+                <h4>Last name :</h4>
+                <p>{user.last_name}</p>
+              </div>
+              <div className="row">
+                <h4>Address</h4>
+                <p>{user.street}</p>
+              </div>
+              <div className="row">
+                <h4>City :</h4>
+                <p>{user.city}</p>
+              </div>
+              <div className="row">
+                <h4>Zip code :</h4>
+                <p>{user.zip_code}</p>
+              </div>
+              <div className="row">
+                <h4>Country :</h4>
+                <p>{user.country}</p>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <div className="button">
         <button className="button-name">
           <Link to={`/surveys/${details.id}`} className="btn-mycomments">
             Surveys history
@@ -132,18 +154,6 @@ const Profile = () => {
         <button className="button-name">
           <Link to={`/edit/${details.id}`}>Edit my profile</Link>
         </button>
-      </div>
-
-      <div>
-        <h2>Mes informations surf</h2>
-        <tbody>
-          <tr>
-            <td>Mon niveau: {user.level}</td>
-          </tr>
-          <tr>
-            <td>Mes spots de références:</td>
-          </tr>
-        </tbody>
       </div>
     </div>
   );

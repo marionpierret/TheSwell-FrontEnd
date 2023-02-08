@@ -5,7 +5,10 @@
   padding-bottom: 33%;
   height: 0;
   position: relative;
+  top: 60px;
+  right: 80px;
 }
+
 .circle-image img {
   width: 50%;
   height: 50%;
@@ -65,25 +68,76 @@
 }
 
 .profile {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
 
+/* .persoInfos {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: rgb(206, 203, 188);
+  width: 70%;
+  border-radius: 4%;
+  padding: 10px;
+  margin-bottom: 20px;
+} */
 
+.infos-card {
+  width: 1100px;
+  height: 550px;
+  background: rgb(206, 203, 188);
+  transition: all 300ms;
+  margin: 30px auto;
+  border-radius: 10px;
+}
 
-.persoInfos {
-display: flex;
-justify-content: center;
-flex-direction: column;
-align-items:flex-start  ;
-background-color: rgb(206, 203, 188) ;
-width: 70%;
-border-radius: 4%;
-padding: 10px;
-margin-bottom: 20px
+.infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0px 75px;
+}
+
+.image-surf-infos{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 1100px;
+  margin: 0px 50px;
+}
+
+.surf-infos-card {
+  width: 700px;
+  height: 400px;
+  background: rgb(206, 203, 188);
+  transition: all 300ms;
+  margin: 30px 0px;
+  border-radius: 10px;
+}
+
+.button {
+  margin-bottom: 25px;
+}
+
+.border-style {
+  border-bottom-style: solid;
+  border-bottom-color: black;
+}
+
+.title {
+  padding: 25px;
 }

@@ -9,6 +9,7 @@ import Survey from "./components/Survey";
 import jwt_decode from "jwt-decode";
 import EditUsers from "./components/EditUsers";
 import SurveysHistory from "./components/SurveysHistory";
+import Footer from "./components/Footer"
 
 const TheSwellRouter = () => {
   const token = localStorage.usertoken;
@@ -33,6 +34,7 @@ const TheSwellRouter = () => {
                 <Route path="/comments" element={<Comments />}/> */}
         <Route path="*" element={<h1>404 ERROR</h1>} />
       </Routes>
+      <Footer/>
     </div>
   );
 };

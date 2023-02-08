@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { TheSwellContext } from "../context/TheSwellContext";
 import jwt_decode from "jwt-decode";
 import { Link } from "react-router-dom";
+import '../css/SearchBar.css'
 
 const SearchBar = () => {
   const { value7, value8, value9 } = useContext(TheSwellContext);
@@ -20,24 +21,39 @@ const SearchBar = () => {
   const token = localStorage.usertoken;
   const decoded = token && jwt_decode(token);
 
-  return (
-<div>
 
-  
-    <form onSubmit={handleClick}>
+  return (
+<div className = "searchBarFull">
+
+{/* <div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Pick your location
+  </a>
+
+  <ul class="dropdown-menu">
+    <li>Lacanau-Océan</li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>
+   */}
+    <form onSubmit={handleClick} className="search">
       <input
+      className="inputSpot"
         type="text"
         placeholder="Enter a location"
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
-      <button type="submit">Rechercher</button>
+            <div className ="searchBtn">
+      <button type="submit">Search</button>
+      </div>
       {decoded && idSpot ? (
-        <Link to={`/spot/${idSpot._id}`}>Spot détails</Link>
+        <Link to={`/spot/${idSpot._id}`} className="spotDetailsBtn">Details</Link>
       ) : (
         <Link to={`/`}></Link>
       )}
-    </form>
+       </form>
     </div>
   );
 };

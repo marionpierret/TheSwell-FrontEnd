@@ -25,21 +25,21 @@ const Register = () => {
   const createUser = (e) => {
     e.preventDefault();
 
-    const newUser = {
-      // creates new object with name,email, password
-      username: username, // using useStates
-      first_name: firstName,
-      last_name: lastName,
-      street: street,
-      city: city,
-      zip_code: zipCode,
-      country: country,
-      email: email,
-      password: password,
-      level: level,
-      image: image,
-      role: role,
-    };
+    // const newUser = {
+    //   // creates new object with name,email, password
+    //   username: username, // using useStates
+    //   first_name: firstName,
+    //   last_name: lastName,
+    //   street: street,
+    //   city: city,
+    //   zip_code: zipCode,
+    //   country: country,
+    //   email: email,
+    //   password: password,
+    //   level: level,
+    //   image: image,
+    //   role: role,
+    // };
 
     const formData = new FormData();
     formData.append("username", username);

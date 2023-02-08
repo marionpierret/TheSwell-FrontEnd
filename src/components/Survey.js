@@ -96,7 +96,7 @@ console.log(findSpotName)
           />
         </div>
         <div>
-          <label className="label">Did the conditions matched the suf report ?</label>
+          <label className="label">Did the conditions matched the surf report ?</label>
           <input
             className="input"
             type="number"
