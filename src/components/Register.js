@@ -44,7 +44,7 @@ const Register = () => {
 
     // Create a new user and post it into the database - then navigate to the login page
     axios
-      .post("http://localhost:8000/auth/register", formData, {
+      .post("https://the-swell-back-l995xjdt2-marionpierret.vercel.app/auth/register", formData, {
         headers: {
           "content-type": "multipart/form-data",
         },
@@ -174,15 +174,6 @@ const Register = () => {
             <input type="file" onChange={(e) => setImage(e.target.files[0])} />
             <label>Image</label>
           </div>
-          {/* <div className="user-box">
-            <input
-              type="text"
-              name=""
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-            />
-            <label>Role</label>
-          </div> */}
           <div className="submitBtn">
             <button type="submit" className="registerBtn">
               <span>Submit</span>

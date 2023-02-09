@@ -53,7 +53,7 @@ const Survey = () => {
     };
 
     axios
-      .post("http://localhost:8000/api/surveys", newSurvey, {
+      .post("https://the-swell-back-l995xjdt2-marionpierret.vercel.app/api/surveys", newSurvey, {
         headers: {
           "content-type": "application/json",
         },
