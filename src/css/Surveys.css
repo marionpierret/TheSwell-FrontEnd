@@ -8,19 +8,17 @@
   background-color: rgba(64, 50, 41, 0.5);
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.192);
   transition: 0.2s linear;
+  margin: 25px 0px;
 }
 
 .form button {
   align-self: flex-end;
 }
 
-/* .form:hover {
-    transform: scale(1.1);
-  } */
-
 .label {
   font-size: 14px;
   margin-bottom: -10.6px;
+  color: white;
 }
 
 .input {
@@ -53,6 +51,11 @@ button:hover {
   box-shadow: 2px 2px 10px rgba(124, 124, 124, 0.192);
 }
 
-h1 {
+.form h1 {
   margin: 20px 0px 5px 0px;
+  color: white;
+}
+
+.form h4 {
+  color: white;
 }

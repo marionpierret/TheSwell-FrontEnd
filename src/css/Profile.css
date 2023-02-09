@@ -77,18 +77,6 @@ h1 {
   text-align: center;
 }
 
-/* .persoInfos {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: rgb(206, 203, 188);
-  width: 70%;
-  border-radius: 4%;
-  padding: 10px;
-  margin-bottom: 20px;
-} */
-
 .infos-card {
   width: 1100px;
   height: 550px;

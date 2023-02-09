@@ -18,6 +18,7 @@ export const TheSwellController = ({ children }) => {
 
   const [loading, setLoading] = useState(false);
 
+  // Fetch latitude & longitude from the Meteo API, according to the query of the user.
   const fetchLocationData = async () => {
     try {
       const callData = await axios.get(
@@ -30,11 +31,12 @@ export const TheSwellController = ({ children }) => {
     }
   };
 
+  // If the query changes, fetchLocationData execute again
   useEffect(() => {
     query && fetchLocationData();
   }, [query]);
 
-  // fetch de l'API pour le surf
+  // Fetch waves data from the meteo API
   const fetchSurfData = async () => {
     try {
       const callData = await axios.get(
@@ -47,7 +49,7 @@ export const TheSwellController = ({ children }) => {
     }
   };
 
-  // fetch de l'API pour le vent
+  // Fetch wind data from the meteo API
   const fetchWindData = async () => {
     try {
       const callData = await axios.get(
@@ -60,14 +62,12 @@ export const TheSwellController = ({ children }) => {
     }
   };
 
-  useEffect(() => { 
-    locationData.latitude && locationData.longitude &&
-    fetchSurfData();
-    locationData.latitude && locationData.longitude &&
-    fetchWindData();
+  useEffect(() => {
+    locationData.latitude && locationData.longitude && fetchSurfData();
+    locationData.latitude && locationData.longitude && fetchWindData();
   }, [locationData.longitude, locationData.latitude]);
 
-  // fetch de l'API TheSwell / Users
+  // Fetch TheSwell API / Users
   const fetchUsersData = async () => {
     try {
       const callData = await axios.get(`http://localhost:8000/api/users`);
@@ -81,7 +81,7 @@ export const TheSwellController = ({ children }) => {
     fetchUsersData();
   }, []);
 
-  // fetch de l'API TheSwell / Spots
+  // Fetch TheSwell API / Spots
   const fetchSpotsData = async () => {
     try {
       const callData = await axios.get(`http://localhost:8000/api/spots`);
@@ -95,7 +95,7 @@ export const TheSwellController = ({ children }) => {
     fetchSpotsData();
   }, []);
 
-  // fetch de l'API TheSwell / Comments
+  // Fetch TheSwell API / Comments
   const fetchCommentsData = async () => {
     try {
       const callData = await axios.get("http://localhost:8000/api/comments");
@@ -109,7 +109,7 @@ export const TheSwellController = ({ children }) => {
     fetchCommentsData();
   }, []);
 
-  // fetch de l'API TheSwell / Surveys
+  // Fetch TheSwell API / Surveys
   const fetchSurveysData = async () => {
     try {
       const callData = await axios.get("http://localhost:8000/api/surveys");

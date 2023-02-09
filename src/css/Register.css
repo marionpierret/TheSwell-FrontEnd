@@ -1,15 +1,3 @@
-body{
-  /* background-color: #a79f83;
-  font-family: Helvetica, sans-serif;
-  display: flex; 
-  flex-direction: column;
-  text-align: center;
-  width: 1200px;
-  margin: auto;
-  border: 10px #8b8574 solid;
-box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px; */
-}
-
 
 .register-box {
   position: absolute;
@@ -80,7 +68,6 @@ box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px; */
   border: none;
   font-size: 18px;
   position: relative;
-  /* overflow: hidden; */
   transition: 500ms;
   display: flex;
   align-self: center;

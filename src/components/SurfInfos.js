@@ -4,6 +4,7 @@ import "../css/MemberPage.css";
 import "../css/SurfInfos.css";
 
 const SurfInfos = () => {
+  // Get the data from our context in order to display it - waves data, wind data and the query from our user
   const { value1, value5, value7 } = useContext(TheSwellContext);
   const [surfData, setSurfData] = value1;
   const [windData, setWindData] = value5;
@@ -15,6 +16,7 @@ const SurfInfos = () => {
       <div className="surf-infos">
         <div className="element-row">
           <h3>Time</h3>
+          {/* if the waves data exist, filter it and return the first 4 days every 3 hours  */}
           {surfData.hourly &&
             surfData.hourly.time
               .filter((e, i) => i % 3 === 0 && i < 96)
@@ -33,6 +35,7 @@ const SurfInfos = () => {
         </div>
         <div className="element-row">
           <h3>Wave direction</h3>
+          {/* Same as above but for the waves direction data */}
           {surfData.hourly &&
             surfData.hourly.wave_direction
               .filter((e, i) => i % 3 === 0 && i < 96)
@@ -78,6 +81,7 @@ const SurfInfos = () => {
         </div>
         <div className="element-row">
           <h3>Wave height</h3>
+          {/* Same as above but for the waves height data */}
           {surfData.hourly &&
             surfData.hourly.wave_height
               .filter((e, i) => i % 3 === 0 && i < 96)
@@ -91,6 +95,7 @@ const SurfInfos = () => {
         </div>
         <div className="element-row">
           <h3>Wave period</h3>
+          {/* Same as above but for the waves period data */}
           {surfData.hourly &&
             surfData.hourly.wave_period
               .filter((e, i) => i % 3 === 0 && i < 96)
@@ -104,6 +109,7 @@ const SurfInfos = () => {
         </div>
         <div className="element-row">
           <h3>Wind direction</h3>
+          {/* Same as above but for the wind direction data */}
           {windData.hourly &&
             windData.hourly.winddirection_10m
               .filter((e, i) => i % 3 === 0 && i < 96)
@@ -149,6 +155,7 @@ const SurfInfos = () => {
         </div>
         <div className="element-row">
           <h3>Wind speed</h3>
+          {/* Same as above but for the wind speed data */}
           {windData.hourly &&
             windData.hourly.windspeed_10m
               .filter((e, i) => i % 3 === 0 && i < 96)

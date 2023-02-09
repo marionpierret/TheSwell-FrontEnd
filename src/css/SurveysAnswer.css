@@ -8,11 +8,6 @@
   border-radius: 10px;
 }
 
-/* .card:hover {
-  opacity: 0.8;
-  transform: scale(1.1);
-} */
-
 .row-answer {
   display: flex;
   flex-direction: row;
@@ -21,6 +16,6 @@
   margin: 0px 10px;
 }
 
-p{
-    margin-left: 5px;
+p {
+  margin-left: 5px;
 }

@@ -5,6 +5,7 @@ import axios from "axios";
 import "../css/Register.css";
 
 const Register = () => {
+  // Create a state variable for each field the new user has to file to register (some are not required)
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,9 +23,11 @@ const Register = () => {
 
   let navigate = useNavigate();
 
+  // Creating a new user
   const createUser = (e) => {
     e.preventDefault();
 
+    // Append a new value to the already existing keys inside the FormData object
     const formData = new FormData();
     formData.append("username", username);
     formData.append("image", image);
@@ -39,6 +42,7 @@ const Register = () => {
     formData.append("level", level);
     formData.append("role", role);
 
+    // Create a new user and post it into the database - then navigate to the login page
     axios
       .post("http://localhost:8000/auth/register", formData, {
         headers: {

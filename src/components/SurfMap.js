@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { TheSwellContext } from "../context/TheSwellContext";
 
 const SurfMap = () => {
+  // Get the latitude and longitude from the context
   const { value6 } = useContext(TheSwellContext);
   const [locationData, setLocationData] = value6;
 

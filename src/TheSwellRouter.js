@@ -9,7 +9,7 @@ import Survey from "./components/Survey";
 import jwt_decode from "jwt-decode";
 import EditUsers from "./components/EditUsers";
 import SurveysHistory from "./components/SurveysHistory";
-import Footer from "./components/Footer"
+import Footer from "./components/Footer";
 
 const TheSwellRouter = () => {
   const token = localStorage.usertoken;
@@ -21,20 +21,20 @@ const TheSwellRouter = () => {
         <Route path="/" element={<App />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        {/* All this routes are accessible if the user is connected */}
         {decoded && (
           <>
             <Route path="/profile" element={<Profile />} />
             <Route path="/spot/:id" element={<MemberPage />} />
             <Route path="/survey/spot/:id" element={<Survey />} />
-            <Route path="/surveys/:id" element={<SurveysHistory/>} />
+            <Route path="/surveys/:id" element={<SurveysHistory />} />
             <Route path="/edit/:id" element={<EditUsers />} />
           </>
         )}
-        {/* <Route path="/opinion" element={<Opinion />}/>
-                <Route path="/comments" element={<Comments />}/> */}
+        {/* <Route path="/comments" element={<Comments />}/> */}
         <Route path="*" element={<h1>404 ERROR</h1>} />
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

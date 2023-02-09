@@ -10,12 +10,14 @@ const SurveysHistory = () => {
   const token = localStorage.usertoken;
   const decoded = token && jwt_decode(token);
 
+  // In all the surveys in our database, check if the user has filled at least one survey
   const mySurveys = surveys.find(
     (element) => element.userId == decoded.user._id
   );
 
   return (
     <div>
+      {/* If mySurveys exists, return all of the surveys he filled */}
       {mySurveys ? (
         surveys
           .filter((e) => e.userId == decoded.user._id)

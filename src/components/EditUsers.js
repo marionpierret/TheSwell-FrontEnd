@@ -7,12 +7,14 @@ import jwt_decode from "jwt-decode";
 const EditUsers = () => {
   const { id } = useParams();
 
+  // To get the user infos with its token
   const token = localStorage.usertoken;
   const decoded = token && jwt_decode(token);
 
 
   let navigate = useNavigate();
 
+  // Create a state with fields which the user will be able to modify its profil
   const [user, setUser] = useState({
     first_name: "",
     last_name: "",
@@ -24,6 +26,7 @@ const EditUsers = () => {
     image: "",
   });
 
+  // Fetch the user data and initialize the state with it
   const getUser = () => {
     axios
       .get(`http://localhost:8000/api/users/${decoded.user._id}`)
@@ -41,17 +44,17 @@ const EditUsers = () => {
       });
   };
 
+  // When the apps mount itself, execute the fonction 'getUser'
   useEffect(() => {
     getUser();
   }, []);
 
+  // Edit the user information and then navigate to the profil page
   const editUser = (e) => {
     e.preventDefault();
     axios
       .put(`http://localhost:8000/api/users/${id}`, user)
       .then((res) => console.log(res));
-
-    navigate("/");
     navigate("/profile");
   };
 
@@ -75,16 +78,16 @@ const EditUsers = () => {
             </td>
           </tr>
         </div>
-        <form onSubmit={editUser}>
+        <form onSubmit={editUser}> {/* Execute the editUser function on the submit of the form */}
           <div className="user-box">
-            <input
+            <input 
               type="firstName"
               name="first_name"
               onChange={(e) =>
                 e.target.value &&
                 setUser({ ...user, first_name: e.target.value })
               }
-            />
+            /> {/* If the user fill the input, set the user with the new input */}
             <label>First name</label>
           </div>
           <div className="user-box">

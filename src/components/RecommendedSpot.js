@@ -5,20 +5,23 @@ import axios from "axios";
 import "../css/RecommendedSpot.css";
 
 const RecommendedSpot = () => {
+  // Get all the spots and all the user data from our context
   const { value1, value9, value4 } = useContext(TheSwellContext);
   const [spots, setSpots] = value9;
   const [users, setUsers] = value4;
 
   const [oneUser, setOneUser] = useState();
+  const [yourSurf, setYourSurf] = useState([]);
   let lvl = [];
 
+  // Initializing loaders
   const [loading, setLoading] = useState(false);
   const [secondLoading, setSecondLoading] = useState(false);
-  const [yourSurf, setYourSurf] = useState([]);
 
   const token = localStorage.usertoken;
   const decoded = token && jwt_decode(token);
 
+  // Map all our spots and fetch the waves data for each spot - return only the waves data of the 24 first hours for each spots
   const whereToSurf = async () => {
     const responseArray = await Promise.all(
       spots.map(
@@ -28,21 +31,26 @@ const RecommendedSpot = () => {
           )
       )
     );
+    // Keep only wave height from all the data received
     const secondArray = await responseArray.map((element) => {
       return element.data.hourly.wave_height;
     });
+    // Keep only the 24 first hours of the waves height data
     const first24Hours = await secondArray.map((element) => {
       return element.slice(0, 24);
     });
     return first24Hours;
   };
 
+  // fetch the data from one user and get its level
   const fetchMyUser = async () => {
     try {
       const callData = await axios.get(
         `http://localhost:8000/api/users/${decoded.user._id}`
       );
+      // Store the data in oneUser state variable
       setOneUser(callData.data);
+      // Once the data is loaded, we sort the level of the user and store it into the lvl variable 
       setSecondLoading(true);
       if (oneUser.level == 1) {
         lvl = levelOne;
@@ -61,6 +69,7 @@ const RecommendedSpot = () => {
     }
   };
 
+  // Create a function to store whereToSurf data into yourSurf state variable
   async function fetchWhereToSurf() {
     try {
       const data = await whereToSurf();
@@ -71,6 +80,7 @@ const RecommendedSpot = () => {
     }
   }
 
+  // Creating an array to store the spot with its surf data
   const newArray = yourSurf.map((e, id) => [
     e,
     spots[id].spot_name,
@@ -78,6 +88,7 @@ const RecommendedSpot = () => {
     spots[id].longitude,
   ]);
 
+  // Filter the waves sizes regarding the user level
   const levelOne = newArray.map((e, i) => [
     e[0].filter((el) => el < 1.0),
     e[1],
@@ -95,14 +106,11 @@ const RecommendedSpot = () => {
 
   const levelFour = newArray.map((e, i) => [e[0].filter((el) => el > 2), e[1]]);
 
+  // When the app is mounting, execute the two functions
   useEffect(() => {
     fetchMyUser();
     fetchWhereToSurf();
   }, []);
-
-  const findUser = users.map((e) => {
-    return [e._id, e.level];
-  });
 
   return (
     <div>
@@ -110,6 +118,7 @@ const RecommendedSpot = () => {
       <div className="spot-card scroll">
         <div className="div">
           <div>
+          {/* Display the spots according to the level of the user */}
             {secondLoading &&
               oneUser.level === 1 &&
               levelOne.map((e, i) => {

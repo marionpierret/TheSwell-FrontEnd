@@ -6,23 +6,25 @@ import jwt_decode from "jwt-decode";
 import "../css/Surveys.css";
 
 const Survey = () => {
-  const [crowd, setCrowd] = useState(0);
-  const [matchCondition, setMatchCondition] = useState(0);
-  const [current, setCurrent] = useState(0);
-  const [parking, setParking] = useState(0);
-  const [clean, setClean] = useState(0);
-  const [danger, setDanger] = useState(0);
-  const [restaurant, setRestaurant] = useState(0);
-  const [swimmers, setSwimmers] = useState(0);
-  const [mood, setMood] = useState(0);
+  // Initialize the fields of the survey at the minimum
+  const [crowd, setCrowd] = useState(1);
+  const [matchCondition, setMatchCondition] = useState(1);
+  const [current, setCurrent] = useState(1);
+  const [parking, setParking] = useState(1);
+  const [clean, setClean] = useState(1);
+  const [danger, setDanger] = useState(1);
+  const [restaurant, setRestaurant] = useState(1);
+  const [swimmers, setSwimmers] = useState(1);
+  const [mood, setMood] = useState(1);
 
-  const [surveyData, setSurveyData] = useState();
-
+  // Get all the spots in our database from the context
   const { value9 } = useContext(TheSwellContext);
   const [spots, setSpots] = value9;
 
+  // Retreive the spot ID
   let { id } = useParams();
 
+  // Get the spot name using its ID to find it
   const findSpotName = spots.find((element) => element._id == id);
 
   // Récupère la data du user
@@ -31,6 +33,7 @@ const Survey = () => {
 
   let navigate = useNavigate();
 
+  // Create a new survey and post it in the database
   const createSurvey = (e) => {
     e.preventDefault();
 
@@ -56,7 +59,7 @@ const Survey = () => {
         },
       })
       .then((res) => {
-        setSurveyData(res);
+        // console.log(res)
         navigate(`/spot/${id}`);
       })
       .catch((err) => console.log(err));
@@ -71,6 +74,8 @@ const Survey = () => {
         <div>
           <label className="label">How crowded was the spot ?</label>
           <input
+          min="1"
+          max="10"
             className="input"
             type="number"
             placeholder="On a scale from 1 to 10"
@@ -83,6 +88,8 @@ const Survey = () => {
             Did the conditions matched the surf report ?
           </label>
           <input
+          min="1"
+          max="10"
             className="input"
             type="number"
             placeholder="On a scale from 1 to 10"
@@ -93,6 +100,8 @@ const Survey = () => {
         <div>
           <label className="label">Was there some current ?</label>
           <input
+          min="1"
+          max="10"
             className="input"
             type="number"
             placeholder="On a scale from 1 to 10"
@@ -103,6 +112,8 @@ const Survey = () => {
         <div>
           <label className="label">Were there parking spots available ?</label>
           <input
+          min="1"
+          max="10"
             className="input"
             type="number"
             placeholder="On a scale from 1 to 10"
@@ -113,6 +124,8 @@ const Survey = () => {
         <div>
           <label className="label">Was the beach clean ?</label>
           <input
+          min="1"
+          max="10"
             className="input"
             type="number"
             placeholder="On a scale from 1 to 10"
@@ -125,6 +138,8 @@ const Survey = () => {
             Were there dangers in the water - jellyfish, sharks ... ?
           </label>
           <input
+          min="1"
+          max="10"
             className="input"
             type="number"
             placeholder="On a scale from 1 to 10"
@@ -135,6 +150,8 @@ const Survey = () => {
         <div>
           <label className="label">Are there some restaurants near by ?</label>
           <input
+          min="1"
+          max="10"
             className="input"
             type="number"
             placeholder="On a scale from 1 to 10"
@@ -145,6 +162,8 @@ const Survey = () => {
         <div>
           <label className="label">Were there swimmers in the water ?</label>
           <input
+          min="1"
+          max="10"
             className="input"
             type="number"
             placeholder="On a scale from 1 to 10"
@@ -155,6 +174,8 @@ const Survey = () => {
         <div>
           <label className="label">Were the locals welcoming ?</label>
           <input
+          min="1"
+          max="10"
             className="input"
             type="number"
             placeholder="On a scale from 1 to 10"

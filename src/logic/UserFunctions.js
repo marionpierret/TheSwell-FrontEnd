@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+// Create a new user
 export const register = abc => {
     return (
         axios.post('http://localhost:8000/auth/register', {
@@ -21,6 +22,7 @@ export const register = abc => {
     )
 }
 
+// Check if the user exist in the database and if so, sends back its token
 export const login = user => {
     return axios.post('http://localhost:8000/auth/login', {
         email : user.email,

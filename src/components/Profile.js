@@ -21,17 +21,15 @@ const Profile = () => {
     role: "",
   };
 
+  // Initialize two state variables to update the user info
   const [user, setUser] = useState(initialValue);
-
   const [details, setDetails] = useState(initialValue);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      getProfil();
-    }, 200);
-    return () => clearTimeout(timer);
+    getProfil();
   }, []);
 
+  // fetch the user info with its id - We get the id thanks to the token
   const getProfil = async () => {
     const token = await localStorage.usertoken;
     const decoded = await jwt_decode(token);
@@ -40,6 +38,7 @@ const Profile = () => {
       .get(`http://localhost:8000/api/users/${decoded.user._id}`)
       .then((res) => setUser(res.data));
 
+    // Store the user info inside the details state variable
     setDetails({
       id: decoded.user._id,
       username: decoded.user.username,
@@ -124,7 +123,7 @@ const Profile = () => {
               <p>{user.last_name}</p>
             </div>
             <div className="row">
-              <h4>Address</h4>
+              <h4>Address :</h4>
               <p>{user.street}</p>
             </div>
             <div className="row">
@@ -145,12 +144,12 @@ const Profile = () => {
 
       <div className="button">
         <button className="button-name">
-          <Link to={`/surveys/${details.id}`} className="btn-mycomments">
+          <Link to={`/surveys/${details.id}`} style={{textDecoration:'none', color:'black'}} className="btn-mycomments">
             Surveys history
           </Link>
         </button>
         <button className="button-name">
-          <Link to={`/edit/${details.id}`}>Edit my profile</Link>
+          <Link to={`/edit/${details.id}`} style={{textDecoration:'none', color:'black'}}>Edit my profile</Link>
         </button>
       </div>
     </div>

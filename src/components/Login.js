@@ -4,12 +4,15 @@ import { useNavigate } from "react-router-dom";
 import "../css/Login.css";
 
 const Login = () => {
+  // Create states to store the input values
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   let navigate = useNavigate();
 
+  // Check if the email and password inputed exist in the the database
   const testLogin = (e) => {
+    // Don't submitt the form before clicking on the button
     e.preventDefault();
 
     const user = {
@@ -20,6 +23,8 @@ const Login = () => {
     login(user).then((res) => {
       if (res) {
         navigate("/profile");
+      } else {
+        alert('invalid password or email, please try again')
       }
     });
   };
@@ -27,7 +32,7 @@ const Login = () => {
   return (
     <div className="login-box">
       <h2>Login</h2>
-      <form noValidate onSubmit={testLogin}>
+      <form noValidate onSubmit={testLogin}> {/* Disable the native validation of our browser */}
         <div className="user-box">
           <input
             type="email"

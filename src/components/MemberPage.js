@@ -6,12 +6,15 @@ import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 const MemberPage = () => {
+  // State variable initialized to true to hide/show the <SurveyAswer /> component
   const [isShown, setIsShown] = useState(true);
 
+  // Display (or not) the <SurveyAswer /> component on the button click
   const handleClick = (event) => {
     setIsShown((current) => !current);
   };
 
+  // useParams used to get the spot ID
   let { id } = useParams();
 
   return (
@@ -25,7 +28,8 @@ const MemberPage = () => {
           className="button-name"
           style={{ margin: "25px 40px" }}
         >
-          <Link to={`/survey/spot/${id}`}>Give us your feedback</Link>
+          {/* link to a survey answering questions about this particular spot */}
+          <Link to={`/survey/spot/${id}`} style={{textDecoration:'none', color:'black'}}>Give us your feedback</Link>
         </button>
         <button
           onClick={handleClick}

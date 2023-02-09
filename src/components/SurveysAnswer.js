@@ -8,6 +8,7 @@ const SurveysAnswer = () => {
   const [locationData, setLocationData] = value6;
   const [spots, setSpots] = value9;
 
+  // Initialize the survey answer at 0
   const cleanArray = [0.0];
   const crowdArray = [0.0];
   const currentArray = [0.0];
@@ -18,18 +19,24 @@ const SurveysAnswer = () => {
   const swimmersArray = [0.0];
   const matchConditionArray = [0.0];
 
+  // Store the spot filtered from our database that match the latitude and longitude of the user query
   const spotsFiltered = spots.filter(
     (spot) =>
       spot.latitude == locationData.latitude.toFixed(2) &&
       spot.longitude == locationData.longitude.toFixed(2)
   );
+  console.log(spotsFiltered);
 
   return (
     <div className="card">
+      {/* filter all the surveys that match our spotsFiltered ID */}
       {spotsFiltered.map((spot) => {
         const surveysFiltered = surveys.filter(
           (survey) => spot._id == survey.spotId
         );
+        {
+          /* For each survey, send the response to its array */
+        }
         return surveysFiltered.map((survey) => {
           {
             cleanArray.push(survey.clean);
@@ -70,17 +77,24 @@ const SurveysAnswer = () => {
       restaurantArray != 0.0 &&
       swimmersArray != 0.0 &&
       matchConditionArray != 0.0 ? (
-        <div style={{display:'flex', flexDirection:'column', alignContent:'flex-start'}}>
-          <div className='row-answer'>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignContent: "flex-start",
+          }}
+        >
+          <div className="row-answer">
             <p>How clean was the spot today ?</p>
             <h3 style={{ margin: "0px 30px" }}>
+              {/* Sum up all the value of each array and make an average out of it */}
               {(
                 cleanArray.reduce((a, b) => a + b) /
                 (cleanArray.length - 1)
               ).toFixed(2)}
             </h3>
           </div>
-          <div className='row-answer'>
+          <div className="row-answer">
             <p>How crowded was the spot today ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
@@ -89,7 +103,7 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
-          <div className='row-answer'>
+          <div className="row-answer">
             <p>How bad was the current today ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
@@ -98,7 +112,7 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
-          <div className='row-answer'>
+          <div className="row-answer">
             <p>Were there some danger in te water ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
@@ -107,7 +121,7 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
-          <div className='row-answer'>
+          <div className="row-answer">
             <p>How welcoming were the locals ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
@@ -116,7 +130,7 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
-          <div className='row-answer'>
+          <div className="row-answer">
             <p>Were there parking spots available ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
@@ -125,7 +139,7 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
-          <div className='row-answer'>
+          <div className="row-answer">
             <p>Spots to eat and drink around ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
@@ -134,7 +148,7 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
-          <div className='row-answer'>
+          <div className="row-answer">
             <p>Were there many swimmers ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
@@ -143,7 +157,7 @@ const SurveysAnswer = () => {
               ).toFixed(2)}
             </h3>
           </div>
-          <div className='row-answer'>
+          <div className="row-answer">
             <p>Did the conditions matched the report ?</p>
             <h3 style={{ margin: "0px 30px" }}>
               {(
