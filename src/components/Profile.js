@@ -28,6 +28,7 @@ const Profile = () => {
   useEffect(() => {
     getProfil();
   }, []);
+ 
 
   // fetch the user info with its id - We get the id thanks to the token
   const getProfil = async () => {
