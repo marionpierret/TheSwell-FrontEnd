@@ -36,7 +36,7 @@ const Profile = () => {
     const decoded = await jwt_decode(token);
 
     axios
-      .get(`https://the-swell-back-l995xjdt2-marionpierret.vercel.app/${decoded.user._id}`)
+      .get(`https://the-swell-back-l995xjdt2-marionpierret.vercel.app/api/users/${decoded.user._id}`)
       .then((res) => setUser(res.data));
 
     // Store the user info inside the details state variable
