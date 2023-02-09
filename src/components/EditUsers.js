@@ -29,7 +29,7 @@ const EditUsers = () => {
   // Fetch the user data and initialize the state with it
   const getUser = () => {
     axios
-      .get(`https://the-swell-back-l995xjdt2-marionpierret.vercel.app/${decoded.user._id}`)
+      .get(`http://localhost:8000/api/users/${decoded.user._id}`)
       .then((res) => {
         setUser({
           first_name: res.data.first_name,
@@ -53,7 +53,7 @@ const EditUsers = () => {
   const editUser = (e) => {
     e.preventDefault();
     axios
-      .put(`https://the-swell-back-l995xjdt2-marionpierret.vercel.app/${id}`, user)
+      .put(`http://localhost:8000/api/users/${id}`, user)
       .then((res) => console.log(res));
     navigate("/profile");
   };
