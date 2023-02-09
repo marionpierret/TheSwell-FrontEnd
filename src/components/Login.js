@@ -22,7 +22,7 @@ const Login = () => {
 
     login(user).then((res) => {
       if (res) {
-        navigate("/profile");
+        navigate("/");
       } else {
         alert('invalid password or email, please try again')
       }

@@ -41,8 +41,20 @@ const SearchBar = () => {
           <Link to={`/spot/${idSpot._id}`} className="spotDetailsBtn">
             Details
           </Link>
+        ) : !decoded && idSpot ? (
+          <Link
+            to={`/login`}
+            className="spotDetailsBtn"
+            style={{ color: "red" }}
+          >
+            Please login to see spot details
+          </Link>
+        ) : decoded && !idSpot ? (
+          <Link to={`/`} className="spotDetailsBtn" style={{ color: "red" }}>
+            Unknown spot
+          </Link>
         ) : (
-          <Link to={`/`} className="spotDetailsBtn" style={{color:"red"}}>Unknown spot</Link>
+          ""
         )}
       </form>
     </div>

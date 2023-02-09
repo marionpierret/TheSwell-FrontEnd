@@ -1,4 +1,4 @@
-import '../css/App.css'
+import '../css/Home.css'
 
 const Footer = () => {
   return (

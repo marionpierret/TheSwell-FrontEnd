@@ -4,7 +4,7 @@ import iconLogin from "../images/power-off.png";
 import iconProfile from "../images/account.png";
 import iconHome from "../images/home.png";
 import iconRegister from "../images/verified.png";
-import "../css/App.css";
+import "../css/Home.css";
 
 const Navbar = () => {
   let navigate = useNavigate();

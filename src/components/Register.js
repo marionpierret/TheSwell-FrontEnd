@@ -145,6 +145,7 @@ const Register = () => {
           <div className="user-box">
             <input
               type="zipCode"
+              pattern="[0-9]{5}"
               name=""
               value={zipCode}
               onChange={(e) => setZipCode(e.target.value)}

@@ -1,9 +1,9 @@
-import "./css/App.css";
-import SurfMap from "./components/SurfMap";
-import SearchBar from "./components/SearchBar";
-import header from "./images/header.png";
+import "../css/Home.css";
+import SurfMap from "../components/SurfMap";
+import SearchBar from "../components/SearchBar";
+import header from "../images/header.png";
 import { Link } from "react-router-dom";
-import iconRegister from "./images/verified.png";
+import iconRegister from "../images/verified.png";
 
 function App() {
   return (

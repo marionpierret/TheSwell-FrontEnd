@@ -1,7 +1,7 @@
-import RecommendedSpot from "./RecommendedSpot";
-import SurfInfos from "./SurfInfos";
-import SurfMap from "./SurfMap";
-import SurveysAnswer from "./SurveysAnswer";
+import RecommendedSpot from "../components/RecommendedSpot";
+import SurfInfos from "../components/SurfInfos";
+import SurfMap from "../components/SurfMap";
+import SurveysAnswer from "../components/SurveysAnswer";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
